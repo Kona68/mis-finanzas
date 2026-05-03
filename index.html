@@ -393,7 +393,7 @@ const SK_ENTRIES  = 'finanzas_app_v1';
 const SK_CUOTAS   = 'finanzas_cuotas_v1';
 const SK_TARJETAS = 'finanzas_tarjetas_v1';
 
-const GH_RAW    = 'https://raw.githubusercontent.com/Kona68/mis-finanzas/main/data.json';
+const GH_RAW    = '/api/load';
 const SAVE_API  = '/api/save';
 
 function loadJSON(key, def) {
@@ -439,8 +439,7 @@ function saveAll() {
 async function loadFromGitHub() {
   showSyncStatus('syncing');
   try {
-    // cache-bust para evitar que el navegador devuelva datos viejos
-    const res = await fetch(GH_RAW + '?t=' + Date.now());
+    const res = await fetch(GH_RAW);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const content = await res.json();
 
