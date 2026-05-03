@@ -393,11 +393,8 @@ const SK_ENTRIES  = 'finanzas_app_v1';
 const SK_CUOTAS   = 'finanzas_cuotas_v1';
 const SK_TARJETAS = 'finanzas_tarjetas_v1';
 
-const GH_TOKEN  = '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';
-const GH_OWNER  = 'Kona68';
-const GH_REPO   = 'mis-finanzas';
-const GH_FILE   = 'data.json';
-const GH_API    = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`;
+const GH_RAW    = 'https://raw.githubusercontent.com/Kona68/mis-finanzas/main/data.json';
+const SAVE_API  = '/api/save';
 
 function loadJSON(key, def) {
   try { return JSON.parse(localStorage.getItem(key) || 'null') || def; } catch(e) { return def; }
@@ -429,7 +426,6 @@ const DEFAULT_CUOTAS = [
 let data     = loadJSON(SK_ENTRIES,  []);
 let cuotas   = loadJSON(SK_CUOTAS,   DEFAULT_CUOTAS);
 let tarjetas = loadJSON(SK_TARJETAS, DEFAULT_TARJETAS);
-let ghFileSha = null; // SHA del archivo en GitHub, necesario para actualizarlo
 
 /* ── Guarda en localStorage (inmediato) y en GitHub (async) ── */
 function saveAll() {
@@ -439,22 +435,15 @@ function saveAll() {
   syncToGitHub();
 }
 
-/* ── Lee data.json desde GitHub y pisa el localStorage ── */
+/* ── Lee data.json desde GitHub (URL pública, sin CORS) ── */
 async function loadFromGitHub() {
   showSyncStatus('syncing');
   try {
-    const res = await fetch(GH_API, {
-      headers: {
-        'Authorization': `Bearer ${GH_TOKEN}`,
-        'Accept': 'application/vnd.github+json'
-      }
-    });
-    if (!res.ok) throw new Error(`GitHub ${res.status}`);
-    const file = await res.json();
-    ghFileSha = file.sha;
-    const content = JSON.parse(atob(file.content.replace(/\n/g, '')));
+    // cache-bust para evitar que el navegador devuelva datos viejos
+    const res = await fetch(GH_RAW + '?t=' + Date.now());
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const content = await res.json();
 
-    // Pisa localStorage con los datos de GitHub
     if (Array.isArray(content.entradas))  { data     = content.entradas;  saveJSON(SK_ENTRIES,  data); }
     if (Array.isArray(content.cuotas))    { cuotas   = content.cuotas;    saveJSON(SK_CUOTAS,   cuotas); }
     if (Array.isArray(content.tarjetas))  { tarjetas = content.tarjetas;  saveJSON(SK_TARJETAS, tarjetas); }
@@ -468,42 +457,19 @@ async function loadFromGitHub() {
   }
 }
 
-/* ── Escribe data.json en GitHub ── */
+/* ── Escribe data.json via Vercel serverless function ── */
 async function syncToGitHub() {
   showSyncStatus('syncing');
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify({
-    entradas: data,
-    cuotas:   cuotas,
-    tarjetas: tarjetas
-  }, null, 2))));
-
   try {
-    // Si no tenemos el SHA, lo buscamos primero
-    if (!ghFileSha) {
-      const r = await fetch(GH_API, {
-        headers: { 'Authorization': `Bearer ${GH_TOKEN}`, 'Accept': 'application/vnd.github+json' }
-      });
-      if (r.ok) { const f = await r.json(); ghFileSha = f.sha; }
-    }
-
-    const body = { message: 'sync: actualización de datos', content };
-    if (ghFileSha) body.sha = ghFileSha;
-
-    const res = await fetch(GH_API, {
-      method: 'PUT',
-      headers: {
-        'Authorization': `Bearer ${GH_TOKEN}`,
-        'Accept': 'application/vnd.github+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
+    const res = await fetch(SAVE_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ entradas: data, cuotas, tarjetas })
     });
-    if (!res.ok) throw new Error(`GitHub ${res.status}`);
-    const result = await res.json();
-    ghFileSha = result.content.sha;
+    if (!res.ok) throw new Error(`API ${res.status}`);
     showSyncStatus('ok');
   } catch(e) {
-    console.error('Error al sincronizar con GitHub:', e);
+    console.error('Error al sincronizar:', e);
     showSyncStatus('error');
   }
 }
