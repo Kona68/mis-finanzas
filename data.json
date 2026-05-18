@@ -9,6 +9,16 @@
       "subcat": "Sueldo fijo",
       "date": "2026-05-18",
       "note": ""
+    },
+    {
+      "id": 1779135908945,
+      "type": "gasto",
+      "desc": "Alquiler",
+      "amount": 687896,
+      "cat": "Casa",
+      "subcat": "Alquiler/Hipoteca",
+      "date": "2026-05-18",
+      "note": ""
     }
   ],
   "cuotas": [
