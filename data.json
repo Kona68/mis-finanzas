@@ -119,6 +119,16 @@
       "subcat": "Supermercado",
       "date": "2026-05-18",
       "note": ""
+    },
+    {
+      "id": 1779136246696,
+      "type": "gasto",
+      "desc": "Deudas Varias",
+      "amount": 169501,
+      "cat": "Facturas",
+      "subcat": "Otros",
+      "date": "2026-05-18",
+      "note": ""
     }
   ],
   "cuotas": [
