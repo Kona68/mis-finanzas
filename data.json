@@ -99,6 +99,16 @@
       "subcat": "Citas o salidas",
       "date": "2026-05-18",
       "note": ""
+    },
+    {
+      "id": 1779136151895,
+      "type": "gasto",
+      "desc": "Salida",
+      "amount": 123583,
+      "cat": "Entretenimiento",
+      "subcat": "Citas o salidas",
+      "date": "2026-05-18",
+      "note": ""
     }
   ],
   "cuotas": [
