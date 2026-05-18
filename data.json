@@ -179,6 +179,16 @@
       "subcat": "Clases",
       "date": "2026-05-18",
       "note": ""
+    },
+    {
+      "id": 1779136443213,
+      "type": "gasto",
+      "desc": "Restaurantes",
+      "amount": 64800,
+      "cat": "Entretenimiento",
+      "subcat": "Restaurante",
+      "date": "2026-05-18",
+      "note": ""
     }
   ],
   "cuotas": [
