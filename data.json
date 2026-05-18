@@ -159,6 +159,16 @@
       "subcat": "Remedios",
       "date": "2026-05-18",
       "note": ""
+    },
+    {
+      "id": 1779136367046,
+      "type": "gasto",
+      "desc": "Gym",
+      "amount": 74000,
+      "cat": "Deportes",
+      "subcat": "Cuota gimnasio",
+      "date": "2026-05-18",
+      "note": ""
     }
   ],
   "cuotas": [
