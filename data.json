@@ -169,6 +169,16 @@
       "subcat": "Cuota gimnasio",
       "date": "2026-05-18",
       "note": ""
+    },
+    {
+      "id": 1779136388746,
+      "type": "gasto",
+      "desc": "Futbol",
+      "amount": 12000,
+      "cat": "Deportes",
+      "subcat": "Clases",
+      "date": "2026-05-18",
+      "note": ""
     }
   ],
   "cuotas": [
