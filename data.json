@@ -1,24 +1,155 @@
 {
-  "entradas": [],
+  "entradas": [
+    {
+      "id": 1779135712811,
+      "type": "ingreso",
+      "desc": "Sueldo Mensual",
+      "amount": 3500000,
+      "cat": "Salario",
+      "subcat": "Sueldo fijo",
+      "date": "2026-05-18",
+      "note": ""
+    }
+  ],
   "cuotas": [
-    {"id":1,"desc":"Merpago*lacardeuse","total":18,"pagadas":15,"monto":154611.11,"activa":true,"tarjetaId":"t1"},
-    {"id":2,"desc":"Bidcom","total":12,"pagadas":6,"monto":23920,"activa":true,"tarjetaId":"t1"},
-    {"id":3,"desc":"Veoquiero","total":12,"pagadas":6,"monto":1390,"activa":true,"tarjetaId":"t2"},
-    {"id":4,"desc":"PerroneLuisa","total":12,"pagadas":6,"monto":6391,"activa":true,"tarjetaId":"t2"},
-    {"id":5,"desc":"Merpago","total":12,"pagadas":2,"monto":17083,"activa":true,"tarjetaId":"t1"},
-    {"id":6,"desc":"Merpago*ventadelibros","total":3,"pagadas":3,"monto":10037,"activa":true,"tarjetaId":"t3"},
-    {"id":7,"desc":"Merpago*mercadolibre","total":12,"pagadas":3,"monto":7941.69,"activa":true,"tarjetaId":"t2"},
-    {"id":8,"desc":"Dinatechsa","total":12,"pagadas":6,"monto":17083,"activa":true,"tarjetaId":"t1"},
-    {"id":9,"desc":"Merpago*Pax","total":12,"pagadas":7,"monto":8373,"activa":true,"tarjetaId":"t3"},
-    {"id":10,"desc":"DutyFreeShop","total":3,"pagadas":3,"monto":64075,"activa":false,"tarjetaId":"t4"},
-    {"id":11,"desc":"Penguin Los arcos","total":6,"pagadas":6,"monto":9833.35,"activa":true,"tarjetaId":"t2"},
-    {"id":1775828434525,"desc":"River ID","total":6,"pagadas":1,"monto":203350,"activa":false,"tarjetaId":"t1"},
-    {"id":1775828481514,"desc":"River ID","total":6,"pagadas":1,"monto":33891.66,"activa":true,"tarjetaId":"t1"}
+    {
+      "id": 1,
+      "desc": "Merpago*lacardeuse",
+      "total": 18,
+      "pagadas": 15,
+      "monto": 154611.11,
+      "activa": true,
+      "tarjetaId": "t1"
+    },
+    {
+      "id": 2,
+      "desc": "Bidcom",
+      "total": 12,
+      "pagadas": 6,
+      "monto": 23920,
+      "activa": true,
+      "tarjetaId": "t1"
+    },
+    {
+      "id": 3,
+      "desc": "Veoquiero",
+      "total": 12,
+      "pagadas": 6,
+      "monto": 1390,
+      "activa": true,
+      "tarjetaId": "t2"
+    },
+    {
+      "id": 4,
+      "desc": "PerroneLuisa",
+      "total": 12,
+      "pagadas": 6,
+      "monto": 6391,
+      "activa": true,
+      "tarjetaId": "t2"
+    },
+    {
+      "id": 5,
+      "desc": "Merpago",
+      "total": 12,
+      "pagadas": 2,
+      "monto": 17083,
+      "activa": true,
+      "tarjetaId": "t1"
+    },
+    {
+      "id": 6,
+      "desc": "Merpago*ventadelibros",
+      "total": 3,
+      "pagadas": 3,
+      "monto": 10037,
+      "activa": true,
+      "tarjetaId": "t3"
+    },
+    {
+      "id": 7,
+      "desc": "Merpago*mercadolibre",
+      "total": 12,
+      "pagadas": 3,
+      "monto": 7941.69,
+      "activa": true,
+      "tarjetaId": "t2"
+    },
+    {
+      "id": 8,
+      "desc": "Dinatechsa",
+      "total": 12,
+      "pagadas": 6,
+      "monto": 17083,
+      "activa": true,
+      "tarjetaId": "t1"
+    },
+    {
+      "id": 9,
+      "desc": "Merpago*Pax",
+      "total": 12,
+      "pagadas": 7,
+      "monto": 8373,
+      "activa": true,
+      "tarjetaId": "t3"
+    },
+    {
+      "id": 10,
+      "desc": "DutyFreeShop",
+      "total": 3,
+      "pagadas": 3,
+      "monto": 64075,
+      "activa": false,
+      "tarjetaId": "t4"
+    },
+    {
+      "id": 11,
+      "desc": "Penguin Los arcos",
+      "total": 6,
+      "pagadas": 6,
+      "monto": 9833.35,
+      "activa": true,
+      "tarjetaId": "t2"
+    },
+    {
+      "id": 1775828434525,
+      "desc": "River ID",
+      "total": 6,
+      "pagadas": 1,
+      "monto": 203350,
+      "activa": false,
+      "tarjetaId": "t1"
+    },
+    {
+      "id": 1775828481514,
+      "desc": "River ID",
+      "total": 6,
+      "pagadas": 1,
+      "monto": 33891.66,
+      "activa": true,
+      "tarjetaId": "t1"
+    }
   ],
   "tarjetas": [
-    {"id":"t1","nombre":"Visa","color":"#185FA5"},
-    {"id":"t2","nombre":"Mastercard","color":"#A32D2D"},
-    {"id":"t3","nombre":"Amex","color":"#0F6E56"},
-    {"id":"t4","nombre":"Naranja","color":"#BA7517"}
+    {
+      "id": "t1",
+      "nombre": "Visa",
+      "color": "#185FA5"
+    },
+    {
+      "id": "t2",
+      "nombre": "Mastercard",
+      "color": "#A32D2D"
+    },
+    {
+      "id": "t3",
+      "nombre": "Amex",
+      "color": "#0F6E56"
+    },
+    {
+      "id": "t4",
+      "nombre": "Naranja",
+      "color": "#BA7517"
+    }
   ]
 }
