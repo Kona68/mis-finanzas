@@ -207,9 +207,13 @@
       <h1>Mis finanzas</h1>
       <p>Ingresos · Gastos · Cuotas · Evolución</p>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
       <button class="btn-primary" onclick="switchTab('add')">+ Agregar</button>
-      <span id="sync-status" style="font-size:11px;color:var(--text-tertiary);"></span>
+      <div style="display:flex;align-items:center;gap:10px;font-size:11px;">
+        <span id="sync-status"></span>
+        <button onclick="forceReload()" title="Recargar desde GitHub"
+          style="background:none;border:0.5px solid var(--border);border-radius:6px;padding:2px 8px;cursor:pointer;font-size:11px;color:var(--text-secondary);font-family:var(--font);">⟲ Recargar</button>
+      </div>
     </div>
   </div>
 
@@ -386,15 +390,17 @@ const MONTHS_ES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Ago
 const ALL_GASTO_CATS = Object.keys(SUBCATS_GASTO);
 
 /* ═══════════════════════════════════════════
-   STORAGE — GitHub como fuente de verdad
-   localStorage como caché local
+   STORAGE & SYNC con GitHub
+   - GitHub es la fuente de verdad
+   - localStorage es caché local
+   - Cada cambio dispara un sync automático
 ═══════════════════════════════════════════ */
 const SK_ENTRIES  = 'finanzas_app_v1';
 const SK_CUOTAS   = 'finanzas_cuotas_v1';
 const SK_TARJETAS = 'finanzas_tarjetas_v1';
 
-const GH_RAW    = '/api/load';
-const SAVE_API  = '/api/save';
+const API_LOAD = '/api/load';
+const API_SAVE = '/api/save';
 
 function loadJSON(key, def) {
   try { return JSON.parse(localStorage.getItem(key) || 'null') || def; } catch(e) { return def; }
@@ -409,80 +415,116 @@ const DEFAULT_TARJETAS = [
   { id: 't3', nombre: 'Amex',       color: '#0F6E56' },
   { id: 't4', nombre: 'Naranja',    color: '#BA7517' },
 ];
-const DEFAULT_CUOTAS = [
-  { id: 1,  desc: 'Merpago*lacardeuse',    total: 18, pagadas: 14, monto: 154611.11, activa: true,  tarjetaId: 't1' },
-  { id: 2,  desc: 'Bidcom',                total: 12, pagadas: 5,  monto: 23920,     activa: true,  tarjetaId: 't1' },
-  { id: 3,  desc: 'Veoquiero',             total: 12, pagadas: 5,  monto: 1390,      activa: true,  tarjetaId: 't2' },
-  { id: 4,  desc: 'PerroneLuisa',          total: 12, pagadas: 5,  monto: 6391,      activa: true,  tarjetaId: 't2' },
-  { id: 5,  desc: 'Merpago',              total: 12, pagadas: 1,  monto: 17083,     activa: true,  tarjetaId: 't1' },
-  { id: 6,  desc: 'Merpago*ventadelibros', total: 3,  pagadas: 2,  monto: 10037,     activa: true,  tarjetaId: 't3' },
-  { id: 7,  desc: 'Merpago*mercadolibre', total: 12, pagadas: 2,  monto: 7941.69,   activa: true,  tarjetaId: 't2' },
-  { id: 8,  desc: 'Dinatechsa',           total: 12, pagadas: 5,  monto: 17083,     activa: true,  tarjetaId: 't1' },
-  { id: 9,  desc: 'Merpago*Pax',          total: 12, pagadas: 6,  monto: 8373,      activa: true,  tarjetaId: 't3' },
-  { id: 10, desc: 'DutyFreeShop',         total: 3,  pagadas: 3,  monto: 64075,     activa: false, tarjetaId: 't4' },
-  { id: 11, desc: 'Penguin Los arcos',    total: 6,  pagadas: 5,  monto: 9833.35,   activa: true,  tarjetaId: 't2' },
-];
 
 let data     = loadJSON(SK_ENTRIES,  []);
-let cuotas   = loadJSON(SK_CUOTAS,   DEFAULT_CUOTAS);
+let cuotas   = loadJSON(SK_CUOTAS,   []);
 let tarjetas = loadJSON(SK_TARJETAS, DEFAULT_TARJETAS);
 
-/* ── Guarda en localStorage (inmediato) y en GitHub (async) ── */
+/* ── Estado de sync ──
+   'idle'      — todo guardado y al día
+   'syncing'   — leyendo/escribiendo
+   'pending'   — hay cambios sin sincronizar (porque otra escritura está en curso)
+   'error'     — falló, guardado solo localmente
+*/
+let syncState = 'idle';
+let isSyncing = false;     // lock: hay una escritura HTTP en curso
+let pendingSync = false;   // marca: hay que volver a sincronizar cuando termine la actual
+let initialLoadDone = false; // bloqueo: no permitir saveAll antes de cargar de GitHub
+
+function setSyncState(state) {
+  syncState = state;
+  const el = document.getElementById('sync-status');
+  if (!el) return;
+  const cfg = {
+    idle:    { icon: '✓', text: 'Guardado',        color: '#0F6E56' },
+    syncing: { icon: '⟳', text: 'Sincronizando…',  color: 'var(--text-tertiary)' },
+    pending: { icon: '⋯', text: 'Pendiente',       color: '#BA7517' },
+    error:   { icon: '✕', text: 'Sin conexión',    color: '#A32D2D' },
+  }[state];
+  el.innerHTML = `<span style="color:${cfg.color}">${cfg.icon} ${cfg.text}</span>`;
+}
+
+/* ── Guarda en local Y dispara sync a GitHub ── */
 function saveAll() {
+  // Persistir local SIEMPRE (no perdemos datos aunque falle el sync)
   saveJSON(SK_ENTRIES,  data);
   saveJSON(SK_CUOTAS,   cuotas);
   saveJSON(SK_TARJETAS, tarjetas);
+
+  // No sincronizar hasta haber leído de GitHub al menos una vez,
+  // para evitar pisar datos remotos con un estado local desactualizado
+  if (!initialLoadDone) return;
+
   syncToGitHub();
 }
 
-/* ── Lee data.json desde GitHub (URL pública, sin CORS) ── */
+/* ── Lee data.json desde GitHub (via /api/load) ── */
 async function loadFromGitHub() {
-  showSyncStatus('syncing');
+  setSyncState('syncing');
   try {
-    const res = await fetch(GH_RAW);
+    const res = await fetch(API_LOAD, { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const content = await res.json();
 
     if (Array.isArray(content.entradas))  { data     = content.entradas;  saveJSON(SK_ENTRIES,  data); }
     if (Array.isArray(content.cuotas))    { cuotas   = content.cuotas;    saveJSON(SK_CUOTAS,   cuotas); }
-    if (Array.isArray(content.tarjetas))  { tarjetas = content.tarjetas;  saveJSON(SK_TARJETAS, tarjetas); }
+    if (Array.isArray(content.tarjetas) && content.tarjetas.length) {
+      tarjetas = content.tarjetas; saveJSON(SK_TARJETAS, tarjetas);
+    }
 
-    showSyncStatus('ok');
+    initialLoadDone = true;
+    setSyncState('idle');
     return true;
   } catch(e) {
-    console.warn('No se pudo cargar desde GitHub, usando caché local:', e);
-    showSyncStatus('error');
+    console.warn('No se pudo cargar de GitHub:', e);
+    setSyncState('error');
     return false;
   }
 }
 
-/* ── Escribe data.json via Vercel serverless function ── */
+/* ── Escribe data.json en GitHub (via /api/save) ──
+   Con lock: si ya hay una escritura en curso, marca pendingSync
+   y al terminar dispara otra. Garantiza que el último estado
+   siempre llega a GitHub, sin race conditions.
+*/
 async function syncToGitHub() {
-  showSyncStatus('syncing');
+  if (isSyncing) {
+    pendingSync = true;
+    setSyncState('pending');
+    return;
+  }
+
+  isSyncing = true;
+  setSyncState('syncing');
+
   try {
-    const res = await fetch(SAVE_API, {
+    const res = await fetch(API_SAVE, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ entradas: data, cuotas, tarjetas })
     });
-    if (!res.ok) throw new Error(`API ${res.status}`);
-    showSyncStatus('ok');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    setSyncState('idle');
   } catch(e) {
-    console.error('Error al sincronizar:', e);
-    showSyncStatus('error');
+    console.error('Error sincronizando:', e);
+    setSyncState('error');
+  } finally {
+    isSyncing = false;
+    // Si llegaron cambios mientras estábamos sincronizando, hacerlo de nuevo
+    if (pendingSync) {
+      pendingSync = false;
+      setTimeout(syncToGitHub, 100);
+    }
   }
 }
 
-/* ── Indicador visual de sync ── */
-function showSyncStatus(state) {
-  const el = document.getElementById('sync-status');
-  if (!el) return;
-  const icons = { syncing: '⟳', ok: '✓', error: '✕' };
-  const labels = { syncing: 'Sincronizando...', ok: 'Sincronizado', error: 'Sin conexión (guardado local)' };
-  const colors = { syncing: 'var(--text-tertiary)', ok: '#0F6E56', error: '#A32D2D' };
-  el.textContent = `${icons[state]} ${labels[state]}`;
-  el.style.color = colors[state];
-  if (state === 'ok') setTimeout(() => { el.textContent = ''; }, 3000);
+/* ── Recarga manual desde GitHub ── */
+async function forceReload() {
+  if (isSyncing) { showToast('Esperá a que termine de guardar'); return; }
+  await loadFromGitHub();
+  updateMonthLabels();
+  renderResumen();
+  showToast('Datos actualizados');
 }
 
 /* ═══════════════════════════════════════════
@@ -511,12 +553,11 @@ function autoAdvanceCuotas() {
         }
       }
     });
-    saveJSON(SK_CUOTAS, cuotas); // solo caché local, el sync completo ocurre en el init
+    saveJSON(SK_CUOTAS, cuotas);
     if (avanzadas > 0) {
       setTimeout(() => showToast(`Nuevo mes: ${avanzadas} cuota${avanzadas > 1 ? 's' : ''} avanzada${avanzadas > 1 ? 's' : ''} automáticamente`), 600);
     }
   }
-  saveJSON(SK_LAST_MONTH, currentKey);
   localStorage.setItem(SK_LAST_MONTH, currentKey);
 }
 
@@ -739,12 +780,12 @@ function renderCuotas() {
 
 function pagarCuotaManual(id) {
   const c = cuotas.find(x => x.id === id);
-  if (c && c.pagadas < c.total) { c.pagadas++; saveJSON(SK_CUOTAS, cuotas); renderCuotas(); showToast('Pago registrado'); }
+  if (c && c.pagadas < c.total) { c.pagadas++; saveAll(); renderCuotas(); showToast('Pago registrado'); }
 }
 function cancelarCuota(id) {
   const c = cuotas.find(x => x.id === id);
   if (c && confirm(`¿Cancelar "${c.desc}"? Se marcará como inactiva.`)) {
-    c.activa = false; saveJSON(SK_CUOTAS, cuotas); renderCuotas(); renderResumen(); showToast('Compra cancelada');
+    c.activa = false; saveAll(); renderCuotas(); renderResumen(); showToast('Compra cancelada');
   }
 }
 
@@ -795,7 +836,7 @@ function agregarTarjeta() {
   const color = document.getElementById('m-tcolor').value;
   if (!nombre) { alert('Ingresá un nombre para la tarjeta'); return; }
   tarjetas.push({ id: 't' + Date.now(), nombre, color });
-  saveJSON(SK_TARJETAS, tarjetas);
+  saveAll();
   closeModal(); renderCuotas(); showToast('Tarjeta agregada');
 }
 
@@ -808,7 +849,7 @@ function agregarCuota() {
   if (!desc || !monto || !total) { alert('Completá descripción, monto y cantidad de cuotas'); return; }
   if (pagadas >= total) { alert('Las cuotas pagadas no pueden ser iguales o mayores al total'); return; }
   cuotas.push({ id: Date.now(), desc, total, pagadas, monto, activa: true, tarjetaId });
-  saveJSON(SK_CUOTAS, cuotas);
+  saveAll();
   closeModal(); renderCuotas(); renderResumen(); showToast('Compra en cuotas agregada');
 }
 
@@ -1020,7 +1061,7 @@ function addEntry() {
   const note = document.getElementById('note').value.trim();
   if (!desc || !amount || !cat || !date) { alert('Completá descripción, monto, categoría y fecha.'); return; }
   data.push({ id: Date.now(), type: currentType, desc, amount, cat, subcat, date, note });
-  saveJSON(SK_ENTRIES, data);
+  saveAll();
   document.getElementById('desc').value = '';
   document.getElementById('amount').value = '';
   document.getElementById('cat-select').value = '';
@@ -1033,7 +1074,7 @@ function addEntry() {
 function deleteEntry(id) {
   if (!confirm('¿Eliminar este registro?')) return;
   data = data.filter(e => e.id !== id);
-  saveJSON(SK_ENTRIES, data);
+  saveAll();
   renderExpensesList();
 }
 
@@ -1077,19 +1118,25 @@ function switchTab(tab) {
 }
 
 /* ═══════════════════════════════════════════
-   INIT — carga desde GitHub, luego renderiza
+   INIT
+   1. Render con caché local (rápido)
+   2. Cargar de GitHub
+   3. Re-renderizar con datos frescos
 ═══════════════════════════════════════════ */
 async function init() {
   document.getElementById('date-input').value = now.toISOString().split('T')[0];
-  updateMonthLabels();
   setType('gasto');
-  renderResumen(); // render inicial con caché local mientras carga
-
-  await loadFromGitHub(); // trae los datos actualizados de GitHub
-
-  autoAdvanceCuotas(); // avanza cuotas si es nuevo mes (con datos frescos)
   updateMonthLabels();
-  renderResumen(); // re-renderiza con datos de GitHub
+  renderResumen();
+  setSyncState('syncing');
+
+  // Cargar de GitHub
+  const ok = await loadFromGitHub();
+  if (ok) {
+    autoAdvanceCuotas();
+    updateMonthLabels();
+    renderResumen();
+  }
 }
 
 init();
