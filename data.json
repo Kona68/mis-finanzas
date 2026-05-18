@@ -219,6 +219,16 @@
       "subcat": "Gas",
       "date": "2026-05-18",
       "note": ""
+    },
+    {
+      "id": 1779136559549,
+      "type": "gasto",
+      "desc": "Limpieza",
+      "amount": 31500,
+      "cat": "Transporte",
+      "subcat": "Auto",
+      "date": "2026-05-18",
+      "note": ""
     }
   ],
   "cuotas": [
