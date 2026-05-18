@@ -209,6 +209,16 @@
       "subcat": "Internet",
       "date": "2026-05-18",
       "note": ""
+    },
+    {
+      "id": 1779136539947,
+      "type": "gasto",
+      "desc": "metrogas",
+      "amount": 17417,
+      "cat": "Facturas",
+      "subcat": "Gas",
+      "date": "2026-05-18",
+      "note": ""
     }
   ],
   "cuotas": [
