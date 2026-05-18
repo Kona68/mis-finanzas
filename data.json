@@ -139,6 +139,16 @@
       "subcat": "Higiene personal",
       "date": "2026-05-18",
       "note": ""
+    },
+    {
+      "id": 1779136297930,
+      "type": "gasto",
+      "desc": "Pscicologa",
+      "amount": 35000,
+      "cat": "Salud",
+      "subcat": "Médico",
+      "date": "2026-05-18",
+      "note": ""
     }
   ],
   "cuotas": [
