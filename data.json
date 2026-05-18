@@ -109,6 +109,16 @@
       "subcat": "Citas o salidas",
       "date": "2026-05-18",
       "note": ""
+    },
+    {
+      "id": 1779136184729,
+      "type": "gasto",
+      "desc": "Comida",
+      "amount": 282260,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-05-18",
+      "note": ""
     }
   ],
   "cuotas": [
