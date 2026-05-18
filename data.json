@@ -69,6 +69,16 @@
       "subcat": "Cine/Teatro",
       "date": "2026-05-18",
       "note": ""
+    },
+    {
+      "id": 1779136062013,
+      "type": "gasto",
+      "desc": "River",
+      "amount": 32300,
+      "cat": "Entretenimiento",
+      "subcat": "Cine/Teatro",
+      "date": "2026-05-18",
+      "note": ""
     }
   ],
   "cuotas": [
