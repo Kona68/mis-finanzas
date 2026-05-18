@@ -189,6 +189,16 @@
       "subcat": "Restaurante",
       "date": "2026-05-18",
       "note": ""
+    },
+    {
+      "id": 1779136488563,
+      "type": "gasto",
+      "desc": "edenor",
+      "amount": 8318,
+      "cat": "Facturas",
+      "subcat": "Electricidad",
+      "date": "2026-05-18",
+      "note": ""
     }
   ],
   "cuotas": [
