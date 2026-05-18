@@ -129,6 +129,16 @@
       "subcat": "Otros",
       "date": "2026-05-18",
       "note": ""
+    },
+    {
+      "id": 1779136276129,
+      "type": "gasto",
+      "desc": "Corte",
+      "amount": 44000,
+      "cat": "Salud",
+      "subcat": "Higiene personal",
+      "date": "2026-05-18",
+      "note": ""
     }
   ],
   "cuotas": [
