@@ -229,6 +229,16 @@
       "subcat": "Auto",
       "date": "2026-05-18",
       "note": ""
+    },
+    {
+      "id": 1779157999655,
+      "type": "gasto",
+      "desc": "Verduras y pollo",
+      "amount": 20500,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-05-19",
+      "note": ""
     }
   ],
   "cuotas": [
