@@ -239,6 +239,16 @@
       "subcat": "Supermercado",
       "date": "2026-05-19",
       "note": ""
+    },
+    {
+      "id": 1779237789063,
+      "type": "gasto",
+      "desc": "Compras varias",
+      "amount": 5500,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-05-20",
+      "note": ""
     }
   ],
   "cuotas": [
