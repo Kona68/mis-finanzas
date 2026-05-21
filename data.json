@@ -249,6 +249,16 @@
       "subcat": "Supermercado",
       "date": "2026-05-20",
       "note": ""
+    },
+    {
+      "id": 1779406427829,
+      "type": "gasto",
+      "desc": "Empanadas",
+      "amount": 17400,
+      "cat": "Entretenimiento",
+      "subcat": "Restaurante",
+      "date": "2026-05-21",
+      "note": ""
     }
   ],
   "cuotas": [
