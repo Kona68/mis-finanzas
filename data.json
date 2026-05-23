@@ -269,6 +269,16 @@
       "subcat": "Supermercado",
       "date": "2026-05-22",
       "note": ""
+    },
+    {
+      "id": 1779548770897,
+      "type": "gasto",
+      "desc": "Comida",
+      "amount": 300000,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-05-23",
+      "note": ""
     }
   ],
   "cuotas": [
