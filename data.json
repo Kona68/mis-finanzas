@@ -279,6 +279,16 @@
       "subcat": "Supermercado",
       "date": "2026-05-23",
       "note": ""
+    },
+    {
+      "id": 1779548798227,
+      "type": "gasto",
+      "desc": "Desayuno",
+      "amount": 18000,
+      "cat": "Entretenimiento",
+      "subcat": "Restaurante",
+      "date": "2026-05-23",
+      "note": ""
     }
   ],
   "cuotas": [
