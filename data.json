@@ -289,6 +289,16 @@
       "subcat": "Restaurante",
       "date": "2026-05-23",
       "note": ""
+    },
+    {
+      "id": 1779551086445,
+      "type": "gasto",
+      "desc": "Limpieza",
+      "amount": 33100,
+      "cat": "Casa",
+      "subcat": "Limpieza",
+      "date": "2026-05-23",
+      "note": ""
     }
   ],
   "cuotas": [
