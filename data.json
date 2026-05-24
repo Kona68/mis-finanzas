@@ -299,6 +299,16 @@
       "subcat": "Limpieza",
       "date": "2026-05-23",
       "note": ""
+    },
+    {
+      "id": 1779658547859,
+      "type": "gasto",
+      "desc": "Salida",
+      "amount": 125000,
+      "cat": "Entretenimiento",
+      "subcat": "Citas o salidas",
+      "date": "2026-05-24",
+      "note": ""
     }
   ],
   "cuotas": [
