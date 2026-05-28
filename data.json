@@ -319,6 +319,16 @@
       "subcat": "Supermercado",
       "date": "2026-05-27",
       "note": ""
+    },
+    {
+      "id": 1779981255878,
+      "type": "gasto",
+      "desc": "River",
+      "amount": 32500,
+      "cat": "Facturas",
+      "subcat": "Otros",
+      "date": "2026-05-28",
+      "note": ""
     }
   ],
   "cuotas": [
