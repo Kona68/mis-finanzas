@@ -329,6 +329,16 @@
       "subcat": "Otros",
       "date": "2026-05-28",
       "note": ""
+    },
+    {
+      "id": 1779981291063,
+      "type": "gasto",
+      "desc": "Comida",
+      "amount": 30500,
+      "cat": "Entretenimiento",
+      "subcat": "Restaurante",
+      "date": "2026-05-28",
+      "note": ""
     }
   ],
   "cuotas": [
