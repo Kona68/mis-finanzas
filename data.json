@@ -369,6 +369,16 @@
       "subcat": "Remedios",
       "date": "2026-06-01",
       "note": ""
+    },
+    {
+      "id": 1780357940919,
+      "type": "gasto",
+      "desc": "Comida",
+      "amount": 20000,
+      "cat": "Comida",
+      "subcat": "Verdulería",
+      "date": "2026-06-01",
+      "note": ""
     }
   ],
   "cuotas": [
