@@ -359,6 +359,16 @@
       "subcat": "Sueldo fijo",
       "date": "2026-06-01",
       "note": ""
+    },
+    {
+      "id": 1780357918086,
+      "type": "gasto",
+      "desc": "Farmacity",
+      "amount": 65000,
+      "cat": "Salud",
+      "subcat": "Remedios",
+      "date": "2026-06-01",
+      "note": ""
     }
   ],
   "cuotas": [
