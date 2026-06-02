@@ -379,6 +379,16 @@
       "subcat": "Verdulería",
       "date": "2026-06-01",
       "note": ""
+    },
+    {
+      "id": 1780409779623,
+      "type": "gasto",
+      "desc": "Edenor",
+      "amount": 10073.43,
+      "cat": "Facturas",
+      "subcat": "Electricidad",
+      "date": "2026-06-02",
+      "note": ""
     }
   ],
   "cuotas": [
