@@ -389,6 +389,16 @@
       "subcat": "Electricidad",
       "date": "2026-06-02",
       "note": ""
+    },
+    {
+      "id": 1780427236293,
+      "type": "gasto",
+      "desc": "Comida",
+      "amount": 9000,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-06-02",
+      "note": ""
     }
   ],
   "cuotas": [
