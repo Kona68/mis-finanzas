@@ -409,6 +409,16 @@
       "subcat": "Otros",
       "date": "2026-06-03",
       "note": "Compras de comida"
+    },
+    {
+      "id": 1780498550957,
+      "type": "gasto",
+      "desc": "Masajes",
+      "amount": 42000,
+      "cat": "Salud",
+      "subcat": "Médico",
+      "date": "2026-06-03",
+      "note": ""
     }
   ],
   "cuotas": [
