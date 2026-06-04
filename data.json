@@ -419,6 +419,16 @@
       "subcat": "Médico",
       "date": "2026-06-03",
       "note": ""
+    },
+    {
+      "id": 1780612483146,
+      "type": "gasto",
+      "desc": "Vinos",
+      "amount": 85000,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-06-04",
+      "note": ""
     }
   ],
   "cuotas": [
