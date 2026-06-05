@@ -439,6 +439,16 @@
       "subcat": "Teléfono",
       "date": "2026-06-05",
       "note": ""
+    },
+    {
+      "id": 1780672595634,
+      "type": "gasto",
+      "desc": "compras varias",
+      "amount": 163000,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-06-05",
+      "note": ""
     }
   ],
   "cuotas": [
