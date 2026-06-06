@@ -449,6 +449,16 @@
       "subcat": "Supermercado",
       "date": "2026-06-05",
       "note": ""
+    },
+    {
+      "id": 1780713217841,
+      "type": "gasto",
+      "desc": "Salida a comer",
+      "amount": 27000,
+      "cat": "Entretenimiento",
+      "subcat": "Restaurante",
+      "date": "2026-06-06",
+      "note": ""
     }
   ],
   "cuotas": [
