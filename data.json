@@ -459,6 +459,16 @@
       "subcat": "Restaurante",
       "date": "2026-06-06",
       "note": ""
+    },
+    {
+      "id": 1780713232410,
+      "type": "gasto",
+      "desc": "Corte",
+      "amount": 20000,
+      "cat": "Salud",
+      "subcat": "Higiene personal",
+      "date": "2026-06-06",
+      "note": ""
     }
   ],
   "cuotas": [
