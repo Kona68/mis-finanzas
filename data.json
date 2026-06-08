@@ -529,6 +529,16 @@
       "subcat": "Taxi/Uber",
       "date": "2026-06-08",
       "note": ""
+    },
+    {
+      "id": 1780939517423,
+      "type": "gasto",
+      "desc": "futbol",
+      "amount": 16000,
+      "cat": "Deportes",
+      "subcat": "Otros",
+      "date": "2026-06-08",
+      "note": ""
     }
   ],
   "cuotas": [
