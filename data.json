@@ -469,6 +469,16 @@
       "subcat": "Higiene personal",
       "date": "2026-06-06",
       "note": ""
+    },
+    {
+      "id": 1780938386512,
+      "type": "gasto",
+      "desc": "limpieza",
+      "amount": 30000,
+      "cat": "Casa",
+      "subcat": "Limpieza",
+      "date": "2026-06-08",
+      "note": ""
     }
   ],
   "cuotas": [
