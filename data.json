@@ -509,6 +509,16 @@
       "subcat": "Otros",
       "date": "2026-06-08",
       "note": ""
+    },
+    {
+      "id": 1780939411505,
+      "type": "gasto",
+      "desc": "pago meli",
+      "amount": 20900,
+      "cat": "Facturas",
+      "subcat": "Otros",
+      "date": "2026-06-08",
+      "note": ""
     }
   ],
   "cuotas": [
