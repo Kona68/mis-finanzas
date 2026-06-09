@@ -559,6 +559,16 @@
       "subcat": "Médico",
       "date": "2026-06-09",
       "note": ""
+    },
+    {
+      "id": 1781012023512,
+      "type": "gasto",
+      "desc": "River",
+      "amount": 32500,
+      "cat": "Facturas",
+      "subcat": "Otros",
+      "date": "2026-06-09",
+      "note": ""
     }
   ],
   "cuotas": [
