@@ -706,6 +706,15 @@
       "monto": 53990,
       "activa": true,
       "tarjetaId": "t2"
+    },
+    {
+      "id": 1781012197966,
+      "desc": "Famacity",
+      "total": 3,
+      "pagadas": 0,
+      "monto": 21985.43,
+      "activa": true,
+      "tarjetaId": "t1"
     }
   ],
   "tarjetas": [
