@@ -742,6 +742,15 @@
       "monto": 145000,
       "activa": true,
       "tarjetaId": "t2"
+    },
+    {
+      "id": 1781012636502,
+      "desc": "gwstore",
+      "total": 9,
+      "pagadas": 0,
+      "monto": 13263.73,
+      "activa": true,
+      "tarjetaId": "t1"
     }
   ],
   "tarjetas": [
