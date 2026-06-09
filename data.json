@@ -697,6 +697,15 @@
       "monto": 3135,
       "activa": true,
       "tarjetaId": "t2"
+    },
+    {
+      "id": 1781012130703,
+      "desc": "Merpago*macowens",
+      "total": 6,
+      "pagadas": 1,
+      "monto": 53990,
+      "activa": true,
+      "tarjetaId": "t2"
     }
   ],
   "tarjetas": [
