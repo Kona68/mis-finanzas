@@ -549,6 +549,16 @@
       "subcat": "Citas o salidas",
       "date": "2026-06-09",
       "note": ""
+    },
+    {
+      "id": 1781011930315,
+      "type": "gasto",
+      "desc": "Psicologa",
+      "amount": 35000,
+      "cat": "Salud",
+      "subcat": "Médico",
+      "date": "2026-06-09",
+      "note": ""
     }
   ],
   "cuotas": [
