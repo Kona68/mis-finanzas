@@ -539,6 +539,16 @@
       "subcat": "Otros",
       "date": "2026-06-08",
       "note": ""
+    },
+    {
+      "id": 1781007564410,
+      "type": "gasto",
+      "desc": "Empadandas",
+      "amount": 34000,
+      "cat": "Entretenimiento",
+      "subcat": "Citas o salidas",
+      "date": "2026-06-09",
+      "note": ""
     }
   ],
   "cuotas": [
@@ -546,7 +556,7 @@
       "id": 1,
       "desc": "Merpago*lacardeuse",
       "total": 18,
-      "pagadas": 17,
+      "pagadas": 18,
       "monto": 154611.11,
       "activa": true,
       "tarjetaId": "t1"
@@ -555,7 +565,7 @@
       "id": 2,
       "desc": "Bidcom",
       "total": 12,
-      "pagadas": 8,
+      "pagadas": 9,
       "monto": 23920,
       "activa": true,
       "tarjetaId": "t1"
@@ -564,7 +574,7 @@
       "id": 3,
       "desc": "Veoquiero",
       "total": 12,
-      "pagadas": 8,
+      "pagadas": 9,
       "monto": 1390,
       "activa": true,
       "tarjetaId": "t2"
@@ -573,7 +583,7 @@
       "id": 4,
       "desc": "PerroneLuisa",
       "total": 12,
-      "pagadas": 8,
+      "pagadas": 9,
       "monto": 6391,
       "activa": true,
       "tarjetaId": "t2"
@@ -582,7 +592,7 @@
       "id": 5,
       "desc": "Merpago",
       "total": 12,
-      "pagadas": 4,
+      "pagadas": 5,
       "monto": 17083,
       "activa": true,
       "tarjetaId": "t1"
@@ -600,7 +610,7 @@
       "id": 7,
       "desc": "Merpago*mercadolibre",
       "total": 12,
-      "pagadas": 5,
+      "pagadas": 6,
       "monto": 7941.69,
       "activa": true,
       "tarjetaId": "t2"
@@ -609,7 +619,7 @@
       "id": 8,
       "desc": "Dinatechsa",
       "total": 12,
-      "pagadas": 8,
+      "pagadas": 9,
       "monto": 17083,
       "activa": true,
       "tarjetaId": "t1"
@@ -618,7 +628,7 @@
       "id": 9,
       "desc": "Merpago*Pax",
       "total": 12,
-      "pagadas": 9,
+      "pagadas": 10,
       "monto": 8373,
       "activa": true,
       "tarjetaId": "t3"
@@ -654,7 +664,7 @@
       "id": 1775828481514,
       "desc": "River ID",
       "total": 6,
-      "pagadas": 3,
+      "pagadas": 4,
       "monto": 33891.66,
       "activa": true,
       "tarjetaId": "t1"
