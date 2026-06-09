@@ -688,6 +688,15 @@
       "monto": 33891.66,
       "activa": true,
       "tarjetaId": "t1"
+    },
+    {
+      "id": 1781012092419,
+      "desc": "merpago*delfondito",
+      "total": 6,
+      "pagadas": 1,
+      "monto": 3135,
+      "activa": true,
+      "tarjetaId": "t2"
     }
   ],
   "tarjetas": [
