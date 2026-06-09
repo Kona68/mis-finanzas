@@ -760,6 +760,15 @@
       "monto": 9350.01,
       "activa": true,
       "tarjetaId": "t1"
+    },
+    {
+      "id": 1781012701116,
+      "desc": "exahome",
+      "total": 3,
+      "pagadas": 0,
+      "monto": 4329.68,
+      "activa": true,
+      "tarjetaId": "t1"
     }
   ],
   "tarjetas": [
