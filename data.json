@@ -733,6 +733,15 @@
       "monto": 12605,
       "activa": true,
       "tarjetaId": "t1"
+    },
+    {
+      "id": 1781012579291,
+      "desc": "la cardeuse",
+      "total": 2,
+      "pagadas": 0,
+      "monto": 145000,
+      "activa": true,
+      "tarjetaId": "t2"
     }
   ],
   "tarjetas": [
