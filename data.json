@@ -569,6 +569,16 @@
       "subcat": "Otros",
       "date": "2026-06-09",
       "note": ""
+    },
+    {
+      "id": 1781026119296,
+      "type": "gasto",
+      "desc": "Comida pedido",
+      "amount": 10000,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-06-09",
+      "note": ""
     }
   ],
   "cuotas": [
