@@ -715,6 +715,15 @@
       "monto": 21985.43,
       "activa": true,
       "tarjetaId": "t1"
+    },
+    {
+      "id": 1781012490665,
+      "desc": "Merpago*mercadolibre",
+      "total": 12,
+      "pagadas": 1,
+      "monto": 4166.37,
+      "activa": true,
+      "tarjetaId": "t1"
     }
   ],
   "tarjetas": [
