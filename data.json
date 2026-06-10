@@ -571,13 +571,13 @@
       "note": ""
     },
     {
-      "id": 1781026119296,
+      "id": 1781100959395,
       "type": "gasto",
-      "desc": "Comida pedido",
-      "amount": 10000,
-      "cat": "Comida",
-      "subcat": "Otros",
-      "date": "2026-06-09",
+      "desc": "alquiler",
+      "amount": 687896,
+      "cat": "Casa",
+      "subcat": "Alquiler/Hipoteca",
+      "date": "2026-06-10",
       "note": ""
     }
   ],
