@@ -609,6 +609,16 @@
       "subcat": "Alquiler/Hipoteca",
       "date": "2026-06-10",
       "note": ""
+    },
+    {
+      "id": 1781106533435,
+      "type": "gasto",
+      "desc": "Pedido comida",
+      "amount": 10099,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-06-10",
+      "note": ""
     }
   ],
   "cuotas": [
