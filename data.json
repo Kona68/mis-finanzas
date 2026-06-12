@@ -619,6 +619,16 @@
       "subcat": "Otros",
       "date": "2026-06-10",
       "note": ""
+    },
+    {
+      "id": 1781308189288,
+      "type": "gasto",
+      "desc": "Comida varios dias",
+      "amount": 22300,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-06-12",
+      "note": ""
     }
   ],
   "cuotas": [
