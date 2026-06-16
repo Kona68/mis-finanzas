@@ -659,6 +659,16 @@
       "subcat": "Taxi/Uber",
       "date": "2026-06-16",
       "note": ""
+    },
+    {
+      "id": 1781570268433,
+      "type": "gasto",
+      "desc": "Shawarma",
+      "amount": 18000,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-06-16",
+      "note": ""
     }
   ],
   "cuotas": [
