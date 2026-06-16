@@ -629,6 +629,16 @@
       "subcat": "Supermercado",
       "date": "2026-06-12",
       "note": ""
+    },
+    {
+      "id": 1781569842498,
+      "type": "gasto",
+      "desc": "Asado",
+      "amount": 38000,
+      "cat": "Entretenimiento",
+      "subcat": "Otros",
+      "date": "2026-06-16",
+      "note": ""
     }
   ],
   "cuotas": [
