@@ -649,6 +649,16 @@
       "subcat": "Supermercado",
       "date": "2026-06-16",
       "note": ""
+    },
+    {
+      "id": 1781569891705,
+      "type": "gasto",
+      "desc": "Uber",
+      "amount": 15000,
+      "cat": "Transporte",
+      "subcat": "Taxi/Uber",
+      "date": "2026-06-16",
+      "note": ""
     }
   ],
   "cuotas": [
