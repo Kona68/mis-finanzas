@@ -669,6 +669,16 @@
       "subcat": "Otros",
       "date": "2026-06-16",
       "note": ""
+    },
+    {
+      "id": 1781708705670,
+      "type": "gasto",
+      "desc": "Argentina",
+      "amount": 35000,
+      "cat": "Entretenimiento",
+      "subcat": "Restaurante",
+      "date": "2026-06-17",
+      "note": ""
     }
   ],
   "cuotas": [
