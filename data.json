@@ -679,6 +679,16 @@
       "subcat": "Restaurante",
       "date": "2026-06-17",
       "note": ""
+    },
+    {
+      "id": 1781751737376,
+      "type": "gasto",
+      "desc": "Salida cita sofi",
+      "amount": 68000,
+      "cat": "Entretenimiento",
+      "subcat": "Citas o salidas",
+      "date": "2026-06-18",
+      "note": ""
     }
   ],
   "cuotas": [
