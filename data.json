@@ -699,6 +699,16 @@
       "subcat": "Restaurante",
       "date": "2026-06-19",
       "note": ""
+    },
+    {
+      "id": 1782128873597,
+      "type": "gasto",
+      "desc": "Super",
+      "amount": 163000,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-06-22",
+      "note": ""
     }
   ],
   "cuotas": [
