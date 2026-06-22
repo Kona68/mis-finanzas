@@ -701,23 +701,13 @@
       "note": ""
     },
     {
-      "id": 1782128873597,
+      "id": 1782138271105,
       "type": "gasto",
-      "desc": "Super",
-      "amount": 163000,
-      "cat": "Comida",
-      "subcat": "Supermercado",
-      "date": "2026-06-22",
-      "note": ""
-    },
-    {
-      "id": 1782128898126,
-      "type": "gasto",
-      "desc": "Asado",
-      "amount": 39000,
-      "cat": "Entretenimiento",
-      "subcat": "Restaurante",
-      "date": "2026-06-22",
+      "desc": "sportclub",
+      "amount": 73600,
+      "cat": "Deportes",
+      "subcat": "Cuota gimnasio",
+      "date": "2026-06-19",
       "note": ""
     }
   ],
