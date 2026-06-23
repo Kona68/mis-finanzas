@@ -709,6 +709,16 @@
       "subcat": "Cuota gimnasio",
       "date": "2026-06-19",
       "note": ""
+    },
+    {
+      "id": 1782178083508,
+      "type": "gasto",
+      "desc": "Corte",
+      "amount": 20000,
+      "cat": "Salud",
+      "subcat": "Higiene personal",
+      "date": "2026-06-23",
+      "note": ""
     }
   ],
   "cuotas": [
