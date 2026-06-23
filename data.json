@@ -719,6 +719,16 @@
       "subcat": "Higiene personal",
       "date": "2026-06-23",
       "note": ""
+    },
+    {
+      "id": 1782178098695,
+      "type": "gasto",
+      "desc": "Nutri",
+      "amount": 45000,
+      "cat": "Salud",
+      "subcat": "Médico",
+      "date": "2026-06-23",
+      "note": ""
     }
   ],
   "cuotas": [
