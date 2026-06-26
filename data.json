@@ -729,6 +729,16 @@
       "subcat": "Médico",
       "date": "2026-06-23",
       "note": ""
+    },
+    {
+      "id": 1782504859278,
+      "type": "gasto",
+      "desc": "alimentos animales",
+      "amount": 113000,
+      "cat": "Inversiones",
+      "subcat": "Campo",
+      "date": "2026-06-26",
+      "note": ""
     }
   ],
   "cuotas": [
