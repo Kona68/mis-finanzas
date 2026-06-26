@@ -739,6 +739,16 @@
       "subcat": "Campo",
       "date": "2026-06-26",
       "note": ""
+    },
+    {
+      "id": 1782505032761,
+      "type": "gasto",
+      "desc": "comida",
+      "amount": 176000,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-06-26",
+      "note": ""
     }
   ],
   "cuotas": [
