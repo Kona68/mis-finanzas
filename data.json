@@ -749,6 +749,16 @@
       "subcat": "Supermercado",
       "date": "2026-06-26",
       "note": ""
+    },
+    {
+      "id": 1782685141500,
+      "type": "gasto",
+      "desc": "Salida con amigos",
+      "amount": 15000,
+      "cat": "Entretenimiento",
+      "subcat": "Citas o salidas",
+      "date": "2026-06-28",
+      "note": ""
     }
   ],
   "cuotas": [
