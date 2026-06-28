@@ -759,6 +759,16 @@
       "subcat": "Citas o salidas",
       "date": "2026-06-28",
       "note": ""
+    },
+    {
+      "id": 1782685157088,
+      "type": "gasto",
+      "desc": "Comida cita",
+      "amount": 24000,
+      "cat": "Entretenimiento",
+      "subcat": "Citas o salidas",
+      "date": "2026-06-28",
+      "note": ""
     }
   ],
   "cuotas": [
