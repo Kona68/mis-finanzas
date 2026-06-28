@@ -769,6 +769,16 @@
       "subcat": "Citas o salidas",
       "date": "2026-06-28",
       "note": ""
+    },
+    {
+      "id": 1782685173523,
+      "type": "gasto",
+      "desc": "Uber",
+      "amount": 20000,
+      "cat": "Transporte",
+      "subcat": "Taxi/Uber",
+      "date": "2026-06-28",
+      "note": ""
     }
   ],
   "cuotas": [
