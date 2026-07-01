@@ -789,6 +789,16 @@
       "subcat": "Supermercado",
       "date": "2026-07-01",
       "note": ""
+    },
+    {
+      "id": 1782949687605,
+      "type": "gasto",
+      "desc": "Almuerzo laburo",
+      "amount": 12000,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-07-01",
+      "note": ""
     }
   ],
   "cuotas": [
