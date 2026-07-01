@@ -779,6 +779,16 @@
       "subcat": "Taxi/Uber",
       "date": "2026-06-28",
       "note": ""
+    },
+    {
+      "id": 1782949647730,
+      "type": "gasto",
+      "desc": "Super",
+      "amount": 15280,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-07-01",
+      "note": ""
     }
   ],
   "cuotas": [
@@ -795,7 +805,7 @@
       "id": 2,
       "desc": "Bidcom",
       "total": 12,
-      "pagadas": 9,
+      "pagadas": 10,
       "monto": 23920,
       "activa": true,
       "tarjetaId": "t1"
@@ -804,7 +814,7 @@
       "id": 3,
       "desc": "Veoquiero",
       "total": 12,
-      "pagadas": 9,
+      "pagadas": 10,
       "monto": 1390,
       "activa": true,
       "tarjetaId": "t2"
@@ -813,7 +823,7 @@
       "id": 4,
       "desc": "PerroneLuisa",
       "total": 12,
-      "pagadas": 9,
+      "pagadas": 10,
       "monto": 6391,
       "activa": true,
       "tarjetaId": "t2"
@@ -822,7 +832,7 @@
       "id": 5,
       "desc": "Merpago",
       "total": 12,
-      "pagadas": 5,
+      "pagadas": 6,
       "monto": 17083,
       "activa": true,
       "tarjetaId": "t1"
@@ -840,7 +850,7 @@
       "id": 7,
       "desc": "Merpago*mercadolibre",
       "total": 12,
-      "pagadas": 6,
+      "pagadas": 7,
       "monto": 7941.69,
       "activa": true,
       "tarjetaId": "t2"
@@ -849,7 +859,7 @@
       "id": 8,
       "desc": "Dinatechsa",
       "total": 12,
-      "pagadas": 9,
+      "pagadas": 10,
       "monto": 17083,
       "activa": true,
       "tarjetaId": "t1"
@@ -858,7 +868,7 @@
       "id": 9,
       "desc": "Merpago*Pax",
       "total": 12,
-      "pagadas": 10,
+      "pagadas": 11,
       "monto": 8373,
       "activa": true,
       "tarjetaId": "t3"
@@ -894,7 +904,7 @@
       "id": 1775828481514,
       "desc": "River ID",
       "total": 6,
-      "pagadas": 4,
+      "pagadas": 5,
       "monto": 33891.66,
       "activa": true,
       "tarjetaId": "t1"
@@ -903,7 +913,7 @@
       "id": 1781012092419,
       "desc": "merpago*delfondito",
       "total": 6,
-      "pagadas": 1,
+      "pagadas": 2,
       "monto": 3135,
       "activa": true,
       "tarjetaId": "t2"
@@ -912,7 +922,7 @@
       "id": 1781012130703,
       "desc": "Merpago*macowens",
       "total": 6,
-      "pagadas": 1,
+      "pagadas": 2,
       "monto": 53990,
       "activa": true,
       "tarjetaId": "t2"
@@ -921,7 +931,7 @@
       "id": 1781012197966,
       "desc": "Famacity",
       "total": 3,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 21985.43,
       "activa": true,
       "tarjetaId": "t1"
@@ -930,7 +940,7 @@
       "id": 1781012490665,
       "desc": "Merpago*mercadolibre",
       "total": 12,
-      "pagadas": 1,
+      "pagadas": 2,
       "monto": 4166.37,
       "activa": true,
       "tarjetaId": "t1"
@@ -939,7 +949,7 @@
       "id": 1781012517937,
       "desc": "Merpago*mercadolibre",
       "total": 3,
-      "pagadas": 1,
+      "pagadas": 2,
       "monto": 12605,
       "activa": true,
       "tarjetaId": "t1"
@@ -948,7 +958,7 @@
       "id": 1781012579291,
       "desc": "la cardeuse",
       "total": 2,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 145000,
       "activa": true,
       "tarjetaId": "t2"
@@ -957,7 +967,7 @@
       "id": 1781012636502,
       "desc": "gwstore",
       "total": 9,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 13263.73,
       "activa": true,
       "tarjetaId": "t1"
@@ -966,7 +976,7 @@
       "id": 1781012671750,
       "desc": "Merpago*mercadolibre",
       "total": 12,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 9350.01,
       "activa": true,
       "tarjetaId": "t1"
@@ -975,7 +985,7 @@
       "id": 1781012701116,
       "desc": "exahome",
       "total": 3,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 4329.68,
       "activa": true,
       "tarjetaId": "t1"
@@ -984,7 +994,7 @@
       "id": 1782567666451,
       "desc": "Famacity",
       "total": 3,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 96000,
       "activa": true,
       "tarjetaId": "t1"
