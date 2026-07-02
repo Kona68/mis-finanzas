@@ -809,6 +809,16 @@
       "subcat": "Sueldo fijo",
       "date": "2026-07-02",
       "note": ""
+    },
+    {
+      "id": 1782997554977,
+      "type": "gasto",
+      "desc": "Venezuela",
+      "amount": 100000,
+      "cat": "Donaciones",
+      "subcat": "Otros",
+      "date": "2026-07-02",
+      "note": ""
     }
   ],
   "cuotas": [
