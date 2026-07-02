@@ -799,6 +799,16 @@
       "subcat": "Otros",
       "date": "2026-07-01",
       "note": ""
+    },
+    {
+      "id": 1782995864572,
+      "type": "ingreso",
+      "desc": "Sueldo mensual",
+      "amount": 3630000,
+      "cat": "Salario",
+      "subcat": "Sueldo fijo",
+      "date": "2026-07-02",
+      "note": ""
     }
   ],
   "cuotas": [
