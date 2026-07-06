@@ -889,6 +889,16 @@
       "subcat": "Internet",
       "date": "2026-07-06",
       "note": ""
+    },
+    {
+      "id": 1783367386078,
+      "type": "gasto",
+      "desc": "edenor",
+      "amount": 12399,
+      "cat": "Facturas",
+      "subcat": "Electricidad",
+      "date": "2026-07-06",
+      "note": ""
     }
   ],
   "cuotas": [
