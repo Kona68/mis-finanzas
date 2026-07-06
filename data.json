@@ -849,6 +849,16 @@
       "subcat": "Gas",
       "date": "2026-07-03",
       "note": ""
+    },
+    {
+      "id": 1783365708647,
+      "type": "gasto",
+      "desc": "limpieza",
+      "amount": 30000,
+      "cat": "Casa",
+      "subcat": "Limpieza",
+      "date": "2026-07-06",
+      "note": ""
     }
   ],
   "cuotas": [
