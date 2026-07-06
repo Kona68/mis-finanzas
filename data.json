@@ -859,6 +859,16 @@
       "subcat": "Limpieza",
       "date": "2026-07-06",
       "note": ""
+    },
+    {
+      "id": 1783365733214,
+      "type": "gasto",
+      "desc": "limpieza",
+      "amount": 35000,
+      "cat": "Transporte",
+      "subcat": "Auto",
+      "date": "2026-07-06",
+      "note": ""
     }
   ],
   "cuotas": [
