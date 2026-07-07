@@ -899,6 +899,16 @@
       "subcat": "Electricidad",
       "date": "2026-07-06",
       "note": ""
+    },
+    {
+      "id": 1783459781979,
+      "type": "gasto",
+      "desc": "Animales",
+      "amount": 108000,
+      "cat": "Inversiones",
+      "subcat": "Campo",
+      "date": "2026-07-07",
+      "note": ""
     }
   ],
   "cuotas": [
