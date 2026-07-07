@@ -909,6 +909,16 @@
       "subcat": "Campo",
       "date": "2026-07-07",
       "note": ""
+    },
+    {
+      "id": 1783459803162,
+      "type": "gasto",
+      "desc": "Inversiones",
+      "amount": 196000,
+      "cat": "Inversiones",
+      "subcat": "Mercado de capitales",
+      "date": "2026-07-07",
+      "note": ""
     }
   ],
   "cuotas": [
