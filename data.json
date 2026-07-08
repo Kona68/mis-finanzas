@@ -919,6 +919,16 @@
       "subcat": "Mercado de capitales",
       "date": "2026-07-07",
       "note": ""
+    },
+    {
+      "id": 1783471297798,
+      "type": "gasto",
+      "desc": "Corte",
+      "amount": 20000,
+      "cat": "Salud",
+      "subcat": "Higiene personal",
+      "date": "2026-07-08",
+      "note": ""
     }
   ],
   "cuotas": [
