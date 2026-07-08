@@ -939,6 +939,16 @@
       "subcat": "Supermercado",
       "date": "2026-07-08",
       "note": ""
+    },
+    {
+      "id": 1783532315945,
+      "type": "gasto",
+      "desc": "Alquiler",
+      "amount": 761235,
+      "cat": "Casa",
+      "subcat": "Alquiler/Hipoteca",
+      "date": "2026-07-08",
+      "note": ""
     }
   ],
   "cuotas": [
