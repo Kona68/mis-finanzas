@@ -929,6 +929,16 @@
       "subcat": "Higiene personal",
       "date": "2026-07-08",
       "note": ""
+    },
+    {
+      "id": 1783471329789,
+      "type": "gasto",
+      "desc": "Comida",
+      "amount": 1800,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-07-08",
+      "note": ""
     }
   ],
   "cuotas": [
