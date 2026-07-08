@@ -949,6 +949,16 @@
       "subcat": "Alquiler/Hipoteca",
       "date": "2026-07-08",
       "note": ""
+    },
+    {
+      "id": 1783532522714,
+      "type": "gasto",
+      "desc": "Expensas",
+      "amount": 219600,
+      "cat": "Casa",
+      "subcat": "Alquiler/Hipoteca",
+      "date": "2026-07-08",
+      "note": ""
     }
   ],
   "cuotas": [
