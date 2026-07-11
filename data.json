@@ -979,6 +979,16 @@
       "subcat": "Citas o salidas",
       "date": "2026-07-10",
       "note": ""
+    },
+    {
+      "id": 1783778350055,
+      "type": "gasto",
+      "desc": "regalo mama",
+      "amount": 300000,
+      "cat": "Regalos",
+      "subcat": "Cumpleaños",
+      "date": "2026-07-10",
+      "note": ""
     }
   ],
   "cuotas": [
