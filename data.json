@@ -989,6 +989,16 @@
       "subcat": "Cumpleaños",
       "date": "2026-07-10",
       "note": ""
+    },
+    {
+      "id": 1784068155945,
+      "type": "gasto",
+      "desc": "Salida a comer + salida",
+      "amount": 50000,
+      "cat": "Entretenimiento",
+      "subcat": "Citas o salidas",
+      "date": "2026-07-14",
+      "note": ""
     }
   ],
   "cuotas": [
