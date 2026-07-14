@@ -999,6 +999,16 @@
       "subcat": "Citas o salidas",
       "date": "2026-07-14",
       "note": ""
+    },
+    {
+      "id": 1784068194181,
+      "type": "gasto",
+      "desc": "Vino",
+      "amount": 21200,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-07-14",
+      "note": ""
     }
   ],
   "cuotas": [
