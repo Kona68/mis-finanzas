@@ -1009,6 +1009,16 @@
       "subcat": "Supermercado",
       "date": "2026-07-14",
       "note": ""
+    },
+    {
+      "id": 1784068320766,
+      "type": "gasto",
+      "desc": "Viaje a misiones",
+      "amount": 100000,
+      "cat": "Viajes",
+      "subcat": "Otros",
+      "date": "2026-07-14",
+      "note": ""
     }
   ],
   "cuotas": [
