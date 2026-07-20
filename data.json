@@ -1039,6 +1039,16 @@
       "subcat": "Otros",
       "date": "2026-07-20",
       "note": ""
+    },
+    {
+      "id": 1784559829903,
+      "type": "gasto",
+      "desc": "argentina y comida",
+      "amount": 50000,
+      "cat": "Entretenimiento",
+      "subcat": "Citas o salidas",
+      "date": "2026-07-20",
+      "note": ""
     }
   ],
   "cuotas": [
