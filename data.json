@@ -1049,6 +1049,16 @@
       "subcat": "Citas o salidas",
       "date": "2026-07-20",
       "note": ""
+    },
+    {
+      "id": 1784660574067,
+      "type": "gasto",
+      "desc": "Gym",
+      "amount": 73600,
+      "cat": "Deportes",
+      "subcat": "Cuota gimnasio",
+      "date": "2026-07-21",
+      "note": ""
     }
   ],
   "cuotas": [
