@@ -1059,6 +1059,16 @@
       "subcat": "Cuota gimnasio",
       "date": "2026-07-21",
       "note": ""
+    },
+    {
+      "id": 1784661893298,
+      "type": "gasto",
+      "desc": "Alimento animales",
+      "amount": 108000,
+      "cat": "Inversiones",
+      "subcat": "Campo",
+      "date": "2026-07-21",
+      "note": ""
     }
   ],
   "cuotas": [
