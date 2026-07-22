@@ -1069,6 +1069,16 @@
       "subcat": "Campo",
       "date": "2026-07-21",
       "note": ""
+    },
+    {
+      "id": 1784736729296,
+      "type": "gasto",
+      "desc": "Comida",
+      "amount": 22000,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-07-22",
+      "note": ""
     }
   ],
   "cuotas": [
