@@ -1079,6 +1079,16 @@
       "subcat": "Otros",
       "date": "2026-07-22",
       "note": ""
+    },
+    {
+      "id": 1784918559918,
+      "type": "gasto",
+      "desc": "Super",
+      "amount": 232000,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-07-24",
+      "note": ""
     }
   ],
   "cuotas": [
