@@ -1099,6 +1099,16 @@
       "subcat": "Limpieza",
       "date": "2026-07-24",
       "note": ""
+    },
+    {
+      "id": 1785009449118,
+      "type": "gasto",
+      "desc": "Salida bnn",
+      "amount": 72000,
+      "cat": "Entretenimiento",
+      "subcat": "Citas o salidas",
+      "date": "2026-07-25",
+      "note": ""
     }
   ],
   "cuotas": [
