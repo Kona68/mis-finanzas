@@ -1109,6 +1109,16 @@
       "subcat": "Citas o salidas",
       "date": "2026-07-25",
       "note": ""
+    },
+    {
+      "id": 1785026714222,
+      "type": "gasto",
+      "desc": "Comida",
+      "amount": 20000,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-07-26",
+      "note": ""
     }
   ],
   "cuotas": [
