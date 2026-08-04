@@ -1179,6 +1179,16 @@
       "subcat": "Médico",
       "date": "2026-08-04",
       "note": ""
+    },
+    {
+      "id": 1785859804213,
+      "type": "gasto",
+      "desc": "Omeprazol",
+      "amount": 30000,
+      "cat": "Salud",
+      "subcat": "Remedios",
+      "date": "2026-08-04",
+      "note": ""
     }
   ],
   "cuotas": [
