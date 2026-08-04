@@ -1149,6 +1149,16 @@
       "subcat": "Otros",
       "date": "2026-08-04",
       "note": ""
+    },
+    {
+      "id": 1785859683468,
+      "type": "gasto",
+      "desc": "River",
+      "amount": 13000,
+      "cat": "Entretenimiento",
+      "subcat": "Citas o salidas",
+      "date": "2026-08-04",
+      "note": ""
     }
   ],
   "cuotas": [
