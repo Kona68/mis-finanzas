@@ -1169,6 +1169,16 @@
       "subcat": "Otros",
       "date": "2026-08-04",
       "note": ""
+    },
+    {
+      "id": 1785859777286,
+      "type": "gasto",
+      "desc": "Psicologa",
+      "amount": 50000,
+      "cat": "Salud",
+      "subcat": "Médico",
+      "date": "2026-08-04",
+      "note": ""
     }
   ],
   "cuotas": [
