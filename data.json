@@ -1199,6 +1199,16 @@
       "subcat": "Sueldo fijo",
       "date": "2026-08-04",
       "note": ""
+    },
+    {
+      "id": 1785951192512,
+      "type": "gasto",
+      "desc": "Comida",
+      "amount": 8720,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-08-05",
+      "note": ""
     }
   ],
   "cuotas": [
