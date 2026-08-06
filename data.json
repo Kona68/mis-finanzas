@@ -1219,6 +1219,16 @@
       "subcat": "Internet",
       "date": "2026-08-06",
       "note": ""
+    },
+    {
+      "id": 1786037858930,
+      "type": "gasto",
+      "desc": "Metrogas",
+      "amount": 27000,
+      "cat": "Facturas",
+      "subcat": "Gas",
+      "date": "2026-08-06",
+      "note": ""
     }
   ],
   "cuotas": [
