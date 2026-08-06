@@ -1209,6 +1209,16 @@
       "subcat": "Otros",
       "date": "2026-08-05",
       "note": ""
+    },
+    {
+      "id": 1786037837394,
+      "type": "gasto",
+      "desc": "Personal",
+      "amount": 65000,
+      "cat": "Facturas",
+      "subcat": "Internet",
+      "date": "2026-08-06",
+      "note": ""
     }
   ],
   "cuotas": [
