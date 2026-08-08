@@ -1229,6 +1229,16 @@
       "subcat": "Gas",
       "date": "2026-08-06",
       "note": ""
+    },
+    {
+      "id": 1786205234113,
+      "type": "gasto",
+      "desc": "Comida",
+      "amount": 13600,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-08-08",
+      "note": ""
     }
   ],
   "cuotas": [
