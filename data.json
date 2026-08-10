@@ -1249,6 +1249,16 @@
       "subcat": "Citas o salidas",
       "date": "2026-08-08",
       "note": ""
+    },
+    {
+      "id": 1786380314893,
+      "type": "gasto",
+      "desc": "Limpieza",
+      "amount": 44000,
+      "cat": "Casa",
+      "subcat": "Limpieza",
+      "date": "2026-08-10",
+      "note": ""
     }
   ],
   "cuotas": [
