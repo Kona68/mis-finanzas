@@ -1259,6 +1259,16 @@
       "subcat": "Limpieza",
       "date": "2026-08-10",
       "note": ""
+    },
+    {
+      "id": 1786407219254,
+      "type": "gasto",
+      "desc": "Alquiler",
+      "amount": 761365,
+      "cat": "Casa",
+      "subcat": "Alquiler/Hipoteca",
+      "date": "2026-08-11",
+      "note": ""
     }
   ],
   "cuotas": [
