@@ -1289,6 +1289,16 @@
       "subcat": "Citas o salidas",
       "date": "2026-08-11",
       "note": ""
+    },
+    {
+      "id": 1786833262237,
+      "type": "gasto",
+      "desc": "gastos varios",
+      "amount": 25000,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-08-15",
+      "note": ""
     }
   ],
   "cuotas": [
