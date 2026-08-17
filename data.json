@@ -1329,6 +1329,16 @@
       "subcat": "Supermercado",
       "date": "2026-08-17",
       "note": ""
+    },
+    {
+      "id": 1786981977139,
+      "type": "gasto",
+      "desc": "pago recivida",
+      "amount": 60000,
+      "cat": "Inversiones",
+      "subcat": "Otros",
+      "date": "2026-08-17",
+      "note": "pago por capacitacion"
     }
   ],
   "cuotas": [
