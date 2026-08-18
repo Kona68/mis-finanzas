@@ -1339,6 +1339,16 @@
       "subcat": "Otros",
       "date": "2026-08-17",
       "note": "pago por capacitacion"
+    },
+    {
+      "id": 1787074635606,
+      "type": "gasto",
+      "desc": "inversion en animales",
+      "amount": 166000,
+      "cat": "Inversiones",
+      "subcat": "Campo",
+      "date": "2026-08-18",
+      "note": ""
     }
   ],
   "cuotas": [
@@ -1382,7 +1392,7 @@
       "id": 5,
       "desc": "Merpago",
       "total": 12,
-      "pagadas": 8,
+      "pagadas": 9,
       "monto": 17083,
       "activa": true,
       "tarjetaId": "t1"
@@ -1400,7 +1410,7 @@
       "id": 7,
       "desc": "Merpago*mercadolibre",
       "total": 12,
-      "pagadas": 9,
+      "pagadas": 10,
       "monto": 7941.69,
       "activa": true,
       "tarjetaId": "t2"
@@ -1463,7 +1473,7 @@
       "id": 1781012092419,
       "desc": "merpago*delfondito",
       "total": 6,
-      "pagadas": 4,
+      "pagadas": 5,
       "monto": 3135,
       "activa": true,
       "tarjetaId": "t2"
@@ -1472,7 +1482,7 @@
       "id": 1781012130703,
       "desc": "Merpago*macowens",
       "total": 6,
-      "pagadas": 4,
+      "pagadas": 5,
       "monto": 53990,
       "activa": true,
       "tarjetaId": "t2"
@@ -1490,7 +1500,7 @@
       "id": 1781012490665,
       "desc": "Merpago*mercadolibre",
       "total": 12,
-      "pagadas": 4,
+      "pagadas": 5,
       "monto": 4166.37,
       "activa": true,
       "tarjetaId": "t1"
@@ -1517,7 +1527,7 @@
       "id": 1781012636502,
       "desc": "gwstore",
       "total": 9,
-      "pagadas": 3,
+      "pagadas": 4,
       "monto": 13263.73,
       "activa": true,
       "tarjetaId": "t1"
@@ -1526,7 +1536,7 @@
       "id": 1781012671750,
       "desc": "Merpago*mercadolibre",
       "total": 12,
-      "pagadas": 3,
+      "pagadas": 4,
       "monto": 9350.01,
       "activa": true,
       "tarjetaId": "t1"
