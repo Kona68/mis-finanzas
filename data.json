@@ -1341,23 +1341,23 @@
       "note": "pago por capacitacion"
     },
     {
-      "id": 1787097922280,
+      "id": 1787074635606,
+      "type": "gasto",
+      "desc": "inversion en animales",
+      "amount": 166000,
+      "cat": "Inversiones",
+      "subcat": "Campo",
+      "date": "2026-08-18",
+      "note": ""
+    },
+    {
+      "id": 1787145610392,
       "type": "gasto",
       "desc": "salida rosario",
       "amount": 56000,
       "cat": "Entretenimiento",
       "subcat": "Citas o salidas",
-      "date": "2026-08-17",
-      "note": ""
-    },
-    {
-      "id": 1787097945218,
-      "type": "gasto",
-      "desc": "psicologa",
-      "amount": 50000,
-      "cat": "Salud",
-      "subcat": "Médico",
-      "date": "2026-08-17",
+      "date": "2026-08-18",
       "note": ""
     }
   ],
@@ -1402,7 +1402,7 @@
       "id": 5,
       "desc": "Merpago",
       "total": 12,
-      "pagadas": 8,
+      "pagadas": 9,
       "monto": 17083,
       "activa": true,
       "tarjetaId": "t1"
@@ -1420,7 +1420,7 @@
       "id": 7,
       "desc": "Merpago*mercadolibre",
       "total": 12,
-      "pagadas": 9,
+      "pagadas": 10,
       "monto": 7941.69,
       "activa": true,
       "tarjetaId": "t2"
@@ -1483,7 +1483,7 @@
       "id": 1781012092419,
       "desc": "merpago*delfondito",
       "total": 6,
-      "pagadas": 4,
+      "pagadas": 5,
       "monto": 3135,
       "activa": true,
       "tarjetaId": "t2"
@@ -1492,7 +1492,7 @@
       "id": 1781012130703,
       "desc": "Merpago*macowens",
       "total": 6,
-      "pagadas": 4,
+      "pagadas": 5,
       "monto": 53990,
       "activa": true,
       "tarjetaId": "t2"
@@ -1510,7 +1510,7 @@
       "id": 1781012490665,
       "desc": "Merpago*mercadolibre",
       "total": 12,
-      "pagadas": 4,
+      "pagadas": 5,
       "monto": 4166.37,
       "activa": true,
       "tarjetaId": "t1"
@@ -1537,7 +1537,7 @@
       "id": 1781012636502,
       "desc": "gwstore",
       "total": 9,
-      "pagadas": 3,
+      "pagadas": 4,
       "monto": 13263.73,
       "activa": true,
       "tarjetaId": "t1"
@@ -1546,7 +1546,7 @@
       "id": 1781012671750,
       "desc": "Merpago*mercadolibre",
       "total": 12,
-      "pagadas": 3,
+      "pagadas": 4,
       "monto": 9350.01,
       "activa": true,
       "tarjetaId": "t1"
@@ -1566,15 +1566,6 @@
       "total": 3,
       "pagadas": 3,
       "monto": 96000,
-      "activa": true,
-      "tarjetaId": "t1"
-    },
-    {
-      "id": 1787098022978,
-      "desc": "Saco Devre",
-      "total": 6,
-      "pagadas": 0,
-      "monto": 52664.3,
       "activa": true,
       "tarjetaId": "t1"
     }
