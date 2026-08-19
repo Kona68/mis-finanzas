@@ -1568,6 +1568,15 @@
       "monto": 96000,
       "activa": true,
       "tarjetaId": "t1"
+    },
+    {
+      "id": 1787098022978,
+      "desc": "Saco Devre",
+      "total": 6,
+      "pagadas": 0,
+      "monto": 52664.3,
+      "activa": true,
+      "tarjetaId": "t1"
     }
   ],
   "tarjetas": [
