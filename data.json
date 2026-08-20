@@ -1359,6 +1359,16 @@
       "subcat": "Citas o salidas",
       "date": "2026-08-18",
       "note": ""
+    },
+    {
+      "id": 1787230286681,
+      "type": "gasto",
+      "desc": "corte de pelo",
+      "amount": 22000,
+      "cat": "Salud",
+      "subcat": "Otros",
+      "date": "2026-08-20",
+      "note": ""
     }
   ],
   "cuotas": [
