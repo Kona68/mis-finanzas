@@ -1379,6 +1379,16 @@
       "subcat": "Restaurante",
       "date": "2026-08-20",
       "note": ""
+    },
+    {
+      "id": 1787230320371,
+      "type": "gasto",
+      "desc": "comida",
+      "amount": 7000,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-08-20",
+      "note": ""
     }
   ],
   "cuotas": [
