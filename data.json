@@ -1369,6 +1369,16 @@
       "subcat": "Otros",
       "date": "2026-08-20",
       "note": ""
+    },
+    {
+      "id": 1787230304432,
+      "type": "gasto",
+      "desc": "pedido de comida",
+      "amount": 20000,
+      "cat": "Entretenimiento",
+      "subcat": "Restaurante",
+      "date": "2026-08-20",
+      "note": ""
     }
   ],
   "cuotas": [
