@@ -1389,6 +1389,16 @@
       "subcat": "Otros",
       "date": "2026-08-20",
       "note": ""
+    },
+    {
+      "id": 1787305701797,
+      "type": "gasto",
+      "desc": "Uber",
+      "amount": 30000,
+      "cat": "Viajes",
+      "subcat": "Otros",
+      "date": "2026-08-21",
+      "note": ""
     }
   ],
   "cuotas": [
