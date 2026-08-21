@@ -1409,6 +1409,16 @@
       "subcat": "Comida viaje",
       "date": "2026-08-21",
       "note": ""
+    },
+    {
+      "id": 1787325040992,
+      "type": "gasto",
+      "desc": "Lomito",
+      "amount": 24000,
+      "cat": "Viajes",
+      "subcat": "Comida viaje",
+      "date": "2026-08-21",
+      "note": ""
     }
   ],
   "cuotas": [
