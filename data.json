@@ -1399,6 +1399,16 @@
       "subcat": "Otros",
       "date": "2026-08-21",
       "note": ""
+    },
+    {
+      "id": 1787305719291,
+      "type": "gasto",
+      "desc": "Desayuno",
+      "amount": 23000,
+      "cat": "Viajes",
+      "subcat": "Comida viaje",
+      "date": "2026-08-21",
+      "note": ""
     }
   ],
   "cuotas": [
