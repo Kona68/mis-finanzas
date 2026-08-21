@@ -1637,6 +1637,15 @@
       "monto": 16080,
       "activa": true,
       "tarjetaId": "t2"
+    },
+    {
+      "id": 1787325061623,
+      "desc": "Compras dechlaton",
+      "total": 6,
+      "pagadas": 0,
+      "monto": 10000,
+      "activa": true,
+      "tarjetaId": "t2"
     }
   ],
   "tarjetas": [
