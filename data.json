@@ -1598,6 +1598,15 @@
       "monto": 96000,
       "activa": true,
       "tarjetaId": "t1"
+    },
+    {
+      "id": 1787305669126,
+      "desc": "Equipaje",
+      "total": 6,
+      "pagadas": 0,
+      "monto": 16080,
+      "activa": true,
+      "tarjetaId": "t2"
     }
   ],
   "tarjetas": [
