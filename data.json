@@ -1419,6 +1419,16 @@
       "subcat": "Comida viaje",
       "date": "2026-08-21",
       "note": ""
+    },
+    {
+      "id": 1787403732947,
+      "type": "gasto",
+      "desc": "Festejo de titulo",
+      "amount": 473000,
+      "cat": "Viajes",
+      "subcat": "Otros",
+      "date": "2026-08-22",
+      "note": ""
     }
   ],
   "cuotas": [
