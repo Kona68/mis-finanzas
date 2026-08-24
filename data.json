@@ -1439,6 +1439,16 @@
       "subcat": "Actividades",
       "date": "2026-08-24",
       "note": ""
+    },
+    {
+      "id": 1787563776909,
+      "type": "gasto",
+      "desc": "Marco",
+      "amount": 50000,
+      "cat": "Viajes",
+      "subcat": "Otros",
+      "date": "2026-08-24",
+      "note": ""
     }
   ],
   "cuotas": [
