@@ -1449,6 +1449,16 @@
       "subcat": "Otros",
       "date": "2026-08-24",
       "note": ""
+    },
+    {
+      "id": 1787603908877,
+      "type": "gasto",
+      "desc": "Comida animales",
+      "amount": 111298,
+      "cat": "Inversiones",
+      "subcat": "Campo",
+      "date": "2026-08-24",
+      "note": ""
     }
   ],
   "cuotas": [
