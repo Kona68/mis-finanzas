@@ -1459,6 +1459,16 @@
       "subcat": "Campo",
       "date": "2026-08-24",
       "note": ""
+    },
+    {
+      "id": 1787614748542,
+      "type": "gasto",
+      "desc": "Comida",
+      "amount": 22000,
+      "cat": "Comida",
+      "subcat": "Verdulería",
+      "date": "2026-08-24",
+      "note": ""
     }
   ],
   "cuotas": [
