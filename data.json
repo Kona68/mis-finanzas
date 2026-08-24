@@ -1429,6 +1429,16 @@
       "subcat": "Otros",
       "date": "2026-08-22",
       "note": ""
+    },
+    {
+      "id": 1787563317143,
+      "type": "gasto",
+      "desc": "Salidas varias cordoba",
+      "amount": 200000,
+      "cat": "Viajes",
+      "subcat": "Actividades",
+      "date": "2026-08-24",
+      "note": ""
     }
   ],
   "cuotas": [
