@@ -1469,6 +1469,16 @@
       "subcat": "Verdulería",
       "date": "2026-08-24",
       "note": ""
+    },
+    {
+      "id": 1787763113900,
+      "type": "gasto",
+      "desc": "comida",
+      "amount": 10000,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-08-26",
+      "note": ""
     }
   ],
   "cuotas": [
