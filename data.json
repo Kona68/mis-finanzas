@@ -1489,6 +1489,16 @@
       "subcat": "Supermercado",
       "date": "2026-08-28",
       "note": ""
+    },
+    {
+      "id": 1787953229817,
+      "type": "gasto",
+      "desc": "limpieza",
+      "amount": 40000,
+      "cat": "Casa",
+      "subcat": "Limpieza",
+      "date": "2026-08-28",
+      "note": ""
     }
   ],
   "cuotas": [
