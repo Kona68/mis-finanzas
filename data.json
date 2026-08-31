@@ -1529,6 +1529,16 @@
       "subcat": "Sueldo fijo",
       "date": "2026-09-01",
       "note": ""
+    },
+    {
+      "id": 1788214707481,
+      "type": "gasto",
+      "desc": "Inversiones mc",
+      "amount": 775067,
+      "cat": "Inversiones",
+      "subcat": "Mercado de capitales",
+      "date": "2026-09-01",
+      "note": ""
     }
   ],
   "cuotas": [
