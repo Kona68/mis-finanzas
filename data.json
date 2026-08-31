@@ -1562,7 +1562,7 @@
       "total": 12,
       "pagadas": 10,
       "monto": 7941.69,
-      "activa": true,
+      "activa": false,
       "tarjetaId": "t2"
     },
     {
