@@ -163,6 +163,9 @@
     .badge-amber { background: #FAEEDA; color: #854F0B; }
     .badge-info { background: #E6F1FB; color: #185FA5; }
     .badge-gray { background: var(--bg-secondary); color: var(--text-secondary); }
+    .archive-toggle { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-secondary); border-radius: var(--radius-md); margin-bottom: 1rem; font-size: 12px; color: var(--text-secondary); }
+    .link-btn { background: none; border: none; color: var(--text-secondary); font-size: 12px; cursor: pointer; font-family: var(--font); text-decoration: underline; padding: 0; }
+    .link-btn:hover { color: var(--text-primary); }
 
     .progress-bar { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
     .progress-fill { height: 100%; border-radius: 3px; }
@@ -252,7 +255,7 @@
     <div id="tarjetas-summary-grid" class="tarjetas-grid"></div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:8px;">
       <div style="display:flex;align-items:center;gap:8px;">
-        <p class="section-title" style="margin:0;">Compras en cuotas</p>
+        <p class="section-title" style="margin:0;">Cuotas activas</p>
         <span class="auto-badge">&#10003; Avance automático</span>
       </div>
       <div style="display:flex;gap:8px;">
@@ -278,6 +281,7 @@
         <tbody id="cuotas-tbody"></tbody>
       </table>
     </div>
+    <div id="archive-section"></div>
   </div>
 
   <!-- EVOLUCIÓN -->
@@ -574,6 +578,7 @@ let viewMonth = now.getMonth(), viewYear = now.getFullYear();
 let detailMonth = now.getMonth(), detailYear = now.getFullYear();
 let activeFilter = 'Todos', currentType = 'gasto', evoRange = 6;
 let cuotasFiltroTarjeta = 'todas';
+let mostrarArchivadas = false;
 
 let pieInst, barInst, lineInst, balanceBarInst, evoGlobalInst;
 const catChartInsts = {};
@@ -607,11 +612,14 @@ function getTarjeta(id) {
   return tarjetas.find(t => t.id === id) || { nombre: 'Sin tarjeta', color: '#888780' };
 }
 
+/* Una cuota está VIVA si está activa y le quedan pagos pendientes */
+function esViva(c) { return c.activa && (c.total - c.pagadas) > 0; }
+function cuotasVivas() { return cuotas.filter(esViva); }
+function cuotasArchivadas() { return cuotas.filter(c => !esViva(c)); }
+
 /* Cuotas activas del mes actual → monto total mensual */
 function getCuotasMensuales() {
-  return cuotas
-    .filter(c => c.activa && (c.total - c.pagadas) > 0)
-    .reduce((s, c) => s + c.monto, 0);
+  return cuotasVivas().reduce((s, c) => s + c.monto, 0);
 }
 
 /* ═══════════════════════════════════════════
@@ -739,57 +747,93 @@ function renderCuotasFilterBar() {
 
 function setCuotasFiltro(id) { cuotasFiltroTarjeta = id; renderCuotas(); }
 
+function toggleArchivadas() { mostrarArchivadas = !mostrarArchivadas; renderCuotas(); }
+
+function filaCuotaHTML(c, archivada) {
+  const restantes = c.total - c.pagadas;
+  const pct = Math.round((c.pagadas / c.total) * 100);
+  const fill = pct >= 80 ? '#639922' : pct >= 50 ? '#BA7517' : '#E24B4A';
+  let badge;
+  if (!c.activa) badge = '<span class="badge badge-gray">Cancelada</span>';
+  else if (restantes === 0) badge = '<span class="badge badge-green">Finalizada</span>';
+  else if (restantes === 1) badge = '<span class="badge badge-amber">Última cuota</span>';
+  else if (restantes <= 3) badge = '<span class="badge badge-amber">Por terminar</span>';
+  else badge = '<span class="badge badge-red">Activa</span>';
+
+  const cuotasTxt = c.totalEstimado
+    ? `<span title="El resumen solo informa cuotas restantes">${restantes} rest.</span>`
+    : `${c.pagadas}/${c.total}`;
+
+  return `<tr style="${archivada ? 'opacity:0.55;' : ''}">
+    <td>
+      <div style="font-weight:500;font-size:13px;">${c.desc}</div>
+      <div style="margin-top:3px;display:flex;align-items:center;gap:6px;">
+        ${badge}<span style="font-size:11px;color:var(--text-tertiary);">${c.fecha || ''}</span>
+      </div>
+    </td>
+    <td>${cardChipHTML(c.tarjetaId)}</td>
+    <td style="text-align:center;font-size:12px;color:var(--text-secondary);">${cuotasTxt}</td>
+    <td style="font-weight:500;">${fmtMoney(c.monto)}</td>
+    <td style="color:var(--text-secondary);font-size:12px;">${fmtMoney(c.total * c.monto)}</td>
+    <td style="font-weight:500;">${fmtMoney(restantes * c.monto)}</td>
+    <td style="min-width:90px;">
+      <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;">${c.totalEstimado ? '—' : pct + '%'}</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:${c.totalEstimado ? 0 : pct}%;background:${fill};"></div></div>
+    </td>
+    <td>
+      <div style="display:flex;gap:6px;flex-wrap:nowrap;">
+        ${archivada
+          ? `<button class="btn-sm" onclick="reactivarCuota(${c.id})">Reactivar</button>`
+          : `<button class="btn-sm" onclick="pagarCuotaManual(${c.id})" title="Registrar un pago">+1</button>
+             <button class="btn-sm-danger" onclick="cancelarCuota(${c.id})">Cancelar</button>`}
+      </div>
+    </td>
+  </tr>`;
+}
+
 function renderCuotas() {
   renderTarjetasSummary();
   renderCuotasFilterBar();
+
+  const filtrar = arr => cuotasFiltroTarjeta === 'todas' ? arr : arr.filter(c => c.tarjetaId === cuotasFiltroTarjeta);
+  const vivas = filtrar(cuotasVivas());
+  const archivadas = filtrar(cuotasArchivadas());
+
   const tbody = document.getElementById('cuotas-tbody');
-  tbody.innerHTML = '';
-  const lista = cuotasFiltroTarjeta === 'todas' ? cuotas : cuotas.filter(c => c.tarjetaId === cuotasFiltroTarjeta);
-  if (!lista.length) {
-    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:2rem;color:var(--text-tertiary);font-size:13px;">Sin cuotas para esta tarjeta</td></tr>`;
-    return;
-  }
-  lista.forEach(c => {
-    const restantes = c.total - c.pagadas;
-    const montoRestante = restantes * c.monto;
-    const pct = Math.round((c.pagadas / c.total) * 100);
-    const fillColor = pct >= 80 ? '#639922' : pct >= 50 ? '#BA7517' : '#E24B4A';
-    const statusBadge = !c.activa
-      ? '<span class="badge badge-green">Cancelada</span>'
-      : restantes === 0
-        ? '<span class="badge badge-info">Completada</span>'
-        : restantes <= 2
-          ? '<span class="badge badge-amber">Por terminar</span>'
-          : '<span class="badge badge-red">Activa</span>';
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td><div style="font-weight:500;font-size:13px;">${c.desc}</div><div style="margin-top:3px;">${statusBadge}</div></td>
-      <td>${cardChipHTML(c.tarjetaId)}</td>
-      <td style="text-align:center;font-size:12px;color:var(--text-secondary);">${c.pagadas}/${c.total}</td>
-      <td style="font-weight:500;">${fmtMoney(c.monto)}</td>
-      <td style="color:var(--text-secondary);font-size:12px;">${fmtMoney(c.total * c.monto)}</td>
-      <td style="font-weight:500;">${fmtMoney(montoRestante)}</td>
-      <td style="min-width:90px;">
-        <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:3px;">${pct}%</div>
-        <div class="progress-bar"><div class="progress-fill" style="width:${pct}%;background:${fillColor};"></div></div>
-      </td>
-      <td>
-        <div style="display:flex;gap:6px;flex-wrap:nowrap;">
-          ${c.activa && restantes > 0 ? `<button class="btn-sm" onclick="pagarCuotaManual(${c.id})" title="Sumar un pago manual">+1</button>` : ''}
-          ${c.activa ? `<button class="btn-sm-danger" onclick="cancelarCuota(${c.id})">Cancelar</button>` : ''}
-        </div>
-      </td>`;
-    tbody.appendChild(tr);
-  });
+  tbody.innerHTML = vivas.length
+    ? vivas.map(c => filaCuotaHTML(c, false)).join('')
+    : `<tr><td colspan="8" style="text-align:center;padding:2.5rem;color:var(--text-tertiary);font-size:13px;">No hay cuotas activas para este filtro</td></tr>`;
+
+  const arch = document.getElementById('archive-section');
+  if (!arch) return;
+  if (!archivadas.length) { arch.innerHTML = ''; return; }
+  arch.innerHTML = `
+    <div class="archive-toggle">
+      <span>${archivadas.length} compra${archivadas.length !== 1 ? 's' : ''} finalizada${archivadas.length !== 1 ? 's' : ''} o cancelada${archivadas.length !== 1 ? 's' : ''}</span>
+      <button class="link-btn" onclick="toggleArchivadas()">${mostrarArchivadas ? 'Ocultar' : 'Ver historial'}</button>
+    </div>
+    ${mostrarArchivadas ? `<div class="cuotas-table-wrap"><table class="cuotas-table">
+      <thead><tr><th>Descripción</th><th>Tarjeta</th><th style="text-align:center">Cuotas</th><th>Cuota mensual</th><th>Total</th><th>Restante</th><th>Progreso</th><th></th></tr></thead>
+      <tbody>${archivadas.map(c => filaCuotaHTML(c, true)).join('')}</tbody>
+    </table></div>` : ''}`;
+}
+
+function reactivarCuota(id) {
+  const c = cuotas.find(x => x.id === id);
+  if (!c) return;
+  if (c.total - c.pagadas <= 0) { alert('Esta compra ya no tiene cuotas pendientes.'); return; }
+  c.activa = true; saveAll(); renderCuotas(); renderResumen(); showToast('Compra reactivada');
 }
 
 function pagarCuotaManual(id) {
   const c = cuotas.find(x => x.id === id);
-  if (c && c.pagadas < c.total) { c.pagadas++; saveAll(); renderCuotas(); showToast('Pago registrado'); }
+  if (!c || c.pagadas >= c.total) return;
+  c.pagadas++; saveAll(); renderCuotas(); renderResumen();
+  showToast(c.pagadas >= c.total ? `"${c.desc}" finalizada` : 'Pago registrado');
 }
 function cancelarCuota(id) {
   const c = cuotas.find(x => x.id === id);
-  if (c && confirm(`¿Cancelar "${c.desc}"? Se marcará como inactiva.`)) {
+  if (c && confirm(`¿Cancelar "${c.desc}"?\n\nSaldás ${fmtMoney((c.total - c.pagadas) * c.monto)} y sale del listado activo.`)) {
     c.activa = false; saveAll(); renderCuotas(); renderResumen(); showToast('Compra cancelada');
   }
 }
