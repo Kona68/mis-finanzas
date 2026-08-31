@@ -1538,7 +1538,7 @@
       "fecha": "21 Ago",
       "total": 6,
       "pagadas": 1,
-      "monto": 18150.0,
+      "monto": 18150,
       "activa": true,
       "tarjetaId": "vs"
     },
@@ -1548,7 +1548,7 @@
       "fecha": "20 Ago",
       "total": 3,
       "pagadas": 1,
-      "monto": 6673.0,
+      "monto": 6673,
       "activa": true,
       "tarjetaId": "vs"
     },
@@ -1568,7 +1568,7 @@
       "fecha": "25 Jul",
       "total": 3,
       "pagadas": 2,
-      "monto": 6600.0,
+      "monto": 6600,
       "activa": true,
       "tarjetaId": "vs"
     },
@@ -1794,7 +1794,7 @@
       "fecha": "29/05/26",
       "total": 3,
       "pagadas": 0,
-      "monto": 3135.0,
+      "monto": 3135,
       "activa": true,
       "tarjetaId": "mb",
       "totalEstimado": true
@@ -1805,7 +1805,7 @@
       "fecha": "26/05/26",
       "total": 3,
       "pagadas": 0,
-      "monto": 53990.0,
+      "monto": 53990,
       "activa": true,
       "tarjetaId": "mb",
       "totalEstimado": true
@@ -1816,10 +1816,19 @@
       "fecha": "04/11/24",
       "total": 2,
       "pagadas": 0,
-      "monto": 12330.0,
+      "monto": 12330,
       "activa": true,
       "tarjetaId": "mb",
       "totalEstimado": true
+    },
+    {
+      "id": 1788214351933,
+      "desc": "Farmacity",
+      "total": 3,
+      "pagadas": 0,
+      "monto": 25500,
+      "activa": true,
+      "tarjetaId": "vb"
     }
   ],
   "tarjetas": [
