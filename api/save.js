@@ -33,7 +33,7 @@ export default async function handler(req, res) {
     const content = Buffer.from(JSON.stringify({ entradas, cuotas, tarjetas }, null, 2)).toString('base64');
 
     // 3. Hacer commit
-    const body = { message: 'sync: actualización de datos', content };
+    const body = { message: 'sync: actualización de datos [skip ci]', content };
     if (sha) body.sha = sha;
 
     const putRes = await fetch(API, {
