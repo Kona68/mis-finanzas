@@ -1509,6 +1509,16 @@
       "subcat": "Citas o salidas",
       "date": "2026-09-01",
       "note": ""
+    },
+    {
+      "id": 1788214480059,
+      "type": "gasto",
+      "desc": "Psicología",
+      "amount": 50000,
+      "cat": "Salud",
+      "subcat": "Médico",
+      "date": "2026-09-01",
+      "note": ""
     }
   ],
   "cuotas": [
