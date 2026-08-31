@@ -1535,7 +1535,7 @@
       "total": 12,
       "pagadas": 12,
       "monto": 6391,
-      "activa": true,
+      "activa": false,
       "tarjetaId": "t2"
     },
     {
