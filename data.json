@@ -1519,6 +1519,16 @@
       "subcat": "Médico",
       "date": "2026-09-01",
       "note": ""
+    },
+    {
+      "id": 1788214534740,
+      "type": "ingreso",
+      "desc": "Sueldo mensual",
+      "amount": 3800000,
+      "cat": "Salario",
+      "subcat": "Sueldo fijo",
+      "date": "2026-09-01",
+      "note": ""
     }
   ],
   "cuotas": [
