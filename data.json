@@ -1539,6 +1539,16 @@
       "subcat": "Mercado de capitales",
       "date": "2026-09-01",
       "note": ""
+    },
+    {
+      "id": 1788297807564,
+      "type": "gasto",
+      "desc": "Cafe",
+      "amount": 6500,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-09-01",
+      "note": ""
     }
   ],
   "cuotas": [
@@ -1547,7 +1557,7 @@
       "desc": "Merpago*gastronomiaba",
       "fecha": "28 Ago",
       "total": 12,
-      "pagadas": 1,
+      "pagadas": 2,
       "monto": 4344.93,
       "activa": true,
       "tarjetaId": "vs"
@@ -1557,7 +1567,7 @@
       "desc": "Merpago*gastronomiaba",
       "fecha": "—",
       "total": 3,
-      "pagadas": 1,
+      "pagadas": 2,
       "monto": 15238.33,
       "activa": true,
       "tarjetaId": "vs"
@@ -1567,7 +1577,7 @@
       "desc": "Merpago*elnoble",
       "fecha": "23 Ago",
       "total": 3,
-      "pagadas": 1,
+      "pagadas": 2,
       "monto": 7856.33,
       "activa": true,
       "tarjetaId": "vs"
@@ -1577,7 +1587,7 @@
       "desc": "Aerolíneas Argentinas",
       "fecha": "21 Ago",
       "total": 6,
-      "pagadas": 1,
+      "pagadas": 2,
       "monto": 18150,
       "activa": true,
       "tarjetaId": "vs"
@@ -1587,7 +1597,7 @@
       "desc": "Merpago*migusto",
       "fecha": "20 Ago",
       "total": 3,
-      "pagadas": 1,
+      "pagadas": 2,
       "monto": 6673,
       "activa": true,
       "tarjetaId": "vs"
@@ -1597,7 +1607,7 @@
       "desc": "Merpago*migusto",
       "fecha": "03 Ago",
       "total": 3,
-      "pagadas": 2,
+      "pagadas": 3,
       "monto": 6206.33,
       "activa": true,
       "tarjetaId": "vs"
@@ -1607,7 +1617,7 @@
       "desc": "Merpago*mercadolibre",
       "fecha": "25 Jul",
       "total": 3,
-      "pagadas": 2,
+      "pagadas": 3,
       "monto": 6600,
       "activa": true,
       "tarjetaId": "vs"
@@ -1617,7 +1627,7 @@
       "desc": "Merpago*migusto",
       "fecha": "18 Jul",
       "total": 3,
-      "pagadas": 2,
+      "pagadas": 3,
       "monto": 6211.33,
       "activa": true,
       "tarjetaId": "vs"
@@ -1627,7 +1637,7 @@
       "desc": "Merpago*migusto",
       "fecha": "08 Jul",
       "total": 3,
-      "pagadas": 2,
+      "pagadas": 3,
       "monto": 4127.33,
       "activa": true,
       "tarjetaId": "vs"
@@ -1637,7 +1647,7 @@
       "desc": "Merpago*nikkatosushi",
       "fecha": "18 Jun",
       "total": 12,
-      "pagadas": 3,
+      "pagadas": 4,
       "monto": 2492.91,
       "activa": true,
       "tarjetaId": "vs"
@@ -1647,7 +1657,7 @@
       "desc": "Merpago*mercadolibre",
       "fecha": "04 Jun",
       "total": 12,
-      "pagadas": 4,
+      "pagadas": 5,
       "monto": 4166.33,
       "activa": true,
       "tarjetaId": "vs"
@@ -1657,7 +1667,7 @@
       "desc": "Merpago*gwcstore",
       "fecha": "14 May",
       "total": 9,
-      "pagadas": 4,
+      "pagadas": 5,
       "monto": 13263.73,
       "activa": true,
       "tarjetaId": "vs"
@@ -1667,7 +1677,7 @@
       "desc": "Merpago*migusto",
       "fecha": "12 May",
       "total": 12,
-      "pagadas": 4,
+      "pagadas": 5,
       "monto": 3503.41,
       "activa": true,
       "tarjetaId": "vs"
@@ -1677,7 +1687,7 @@
       "desc": "Merpago*mercadolibre",
       "fecha": "11 May",
       "total": 12,
-      "pagadas": 4,
+      "pagadas": 5,
       "monto": 9249.94,
       "activa": true,
       "tarjetaId": "vs"
@@ -1687,7 +1697,7 @@
       "desc": "Merpago*sebastian",
       "fecha": "01 May",
       "total": 12,
-      "pagadas": 5,
+      "pagadas": 6,
       "monto": 1645.83,
       "activa": true,
       "tarjetaId": "vs"
@@ -1697,7 +1707,7 @@
       "desc": "Merpago*perroneluisa",
       "fecha": "24 Abr",
       "total": 12,
-      "pagadas": 5,
+      "pagadas": 6,
       "monto": 2745.08,
       "activa": true,
       "tarjetaId": "vs"
@@ -1707,7 +1717,7 @@
       "desc": "Merpago*isardsrl",
       "fecha": "16 Abr",
       "total": 12,
-      "pagadas": 5,
+      "pagadas": 6,
       "monto": 2332.5,
       "activa": true,
       "tarjetaId": "vs"
@@ -1717,7 +1727,7 @@
       "desc": "Merpago*mercadolibre",
       "fecha": "19 Feb",
       "total": 12,
-      "pagadas": 7,
+      "pagadas": 8,
       "monto": 7491.69,
       "activa": true,
       "tarjetaId": "vs"
@@ -1727,7 +1737,7 @@
       "desc": "Merpago*bidcom",
       "fecha": "28 Nov",
       "total": 12,
-      "pagadas": 10,
+      "pagadas": 11,
       "monto": 23920.45,
       "activa": true,
       "tarjetaId": "vs"
@@ -1737,7 +1747,7 @@
       "desc": "Merpago*veoquiero",
       "fecha": "—",
       "total": 12,
-      "pagadas": 10,
+      "pagadas": 11,
       "monto": 1390.91,
       "activa": true,
       "tarjetaId": "vs"
@@ -1747,7 +1757,7 @@
       "desc": "Merpago*perroneluisa",
       "fecha": "06 Nov",
       "total": 12,
-      "pagadas": 10,
+      "pagadas": 11,
       "monto": 6391.75,
       "activa": true,
       "tarjetaId": "vs"
@@ -1757,7 +1767,7 @@
       "desc": "Merpago*dinatechsa",
       "fecha": "05 Nov",
       "total": 12,
-      "pagadas": 10,
+      "pagadas": 11,
       "monto": 17083.25,
       "activa": true,
       "tarjetaId": "vs"
@@ -1767,7 +1777,7 @@
       "desc": "Merpago*Pax",
       "fecha": "03/10/25",
       "total": 1,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 8373.75,
       "activa": true,
       "tarjetaId": "vb",
@@ -1778,7 +1788,7 @@
       "desc": "Cuota social — CARP",
       "fecha": "13/04/26",
       "total": 2,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 33891.66,
       "activa": true,
       "tarjetaId": "vb",
@@ -1789,7 +1799,7 @@
       "desc": "Devre",
       "fecha": "19/08/26",
       "total": 5,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 52664.33,
       "activa": true,
       "tarjetaId": "vb",
@@ -1800,7 +1810,7 @@
       "desc": "Decathlon",
       "fecha": "24/08/26",
       "total": 6,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 9966.66,
       "activa": true,
       "tarjetaId": "mb",
@@ -1811,7 +1821,7 @@
       "desc": "Merpago*Leavalle",
       "fecha": "03/08/26",
       "total": 8,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 1888.77,
       "activa": true,
       "tarjetaId": "mb",
@@ -1822,7 +1832,7 @@
       "desc": "Merpago*Mercadolibre",
       "fecha": "30/06/26",
       "total": 7,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 17309.96,
       "activa": true,
       "tarjetaId": "mb",
@@ -1833,7 +1843,7 @@
       "desc": "Merpago*Delfondoedit",
       "fecha": "29/05/26",
       "total": 3,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 3135,
       "activa": true,
       "tarjetaId": "mb",
@@ -1844,7 +1854,7 @@
       "desc": "Merpago*Macowens",
       "fecha": "26/05/26",
       "total": 3,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 53990,
       "activa": true,
       "tarjetaId": "mb",
@@ -1855,7 +1865,7 @@
       "desc": "Merpago*Oeste",
       "fecha": "04/11/24",
       "total": 2,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 12330,
       "activa": true,
       "tarjetaId": "mb",
@@ -1865,7 +1875,7 @@
       "id": 1788214351933,
       "desc": "Farmacity",
       "total": 3,
-      "pagadas": 0,
+      "pagadas": 1,
       "monto": 25500,
       "activa": true,
       "tarjetaId": "vb"
