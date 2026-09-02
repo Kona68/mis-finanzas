@@ -1559,6 +1559,16 @@
       "subcat": "Otros",
       "date": "2026-09-02",
       "note": ""
+    },
+    {
+      "id": 1788369927447,
+      "type": "gasto",
+      "desc": "Metrogas",
+      "amount": 27574,
+      "cat": "Facturas",
+      "subcat": "Gas",
+      "date": "2026-09-02",
+      "note": ""
     }
   ],
   "cuotas": [
