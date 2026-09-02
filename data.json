@@ -1549,6 +1549,16 @@
       "subcat": "Otros",
       "date": "2026-09-01",
       "note": ""
+    },
+    {
+      "id": 1788365401109,
+      "type": "gasto",
+      "desc": "Comida",
+      "amount": 11580,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-09-02",
+      "note": ""
     }
   ],
   "cuotas": [
