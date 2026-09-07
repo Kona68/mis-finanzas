@@ -1599,6 +1599,16 @@
       "subcat": "Supermercado",
       "date": "2026-09-07",
       "note": ""
+    },
+    {
+      "id": 1788790372609,
+      "type": "gasto",
+      "desc": "Mi gusto",
+      "amount": 20000,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-09-07",
+      "note": ""
     }
   ],
   "cuotas": [
