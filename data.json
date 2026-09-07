@@ -1639,6 +1639,16 @@
       "subcat": "Otros",
       "date": "2026-09-07",
       "note": ""
+    },
+    {
+      "id": 1788813591350,
+      "type": "gasto",
+      "desc": "Comida cafe",
+      "amount": 17800,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-09-07",
+      "note": ""
     }
   ],
   "cuotas": [
