@@ -1629,6 +1629,16 @@
       "subcat": "Internet",
       "date": "2026-09-07",
       "note": ""
+    },
+    {
+      "id": 1788792059067,
+      "type": "gasto",
+      "desc": "claude",
+      "amount": 150000,
+      "cat": "Facturas",
+      "subcat": "Otros",
+      "date": "2026-09-07",
+      "note": ""
     }
   ],
   "cuotas": [
