@@ -1619,6 +1619,16 @@
       "subcat": "Electricidad",
       "date": "2026-09-07",
       "note": ""
+    },
+    {
+      "id": 1788791983719,
+      "type": "gasto",
+      "desc": "Personal",
+      "amount": 60000,
+      "cat": "Facturas",
+      "subcat": "Internet",
+      "date": "2026-09-07",
+      "note": ""
     }
   ],
   "cuotas": [
