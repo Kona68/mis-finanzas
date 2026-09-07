@@ -1579,6 +1579,16 @@
       "subcat": "Otros",
       "date": "2026-09-07",
       "note": "River"
+    },
+    {
+      "id": 1788790242027,
+      "type": "gasto",
+      "desc": "Animales",
+      "amount": 222000,
+      "cat": "Inversiones",
+      "subcat": "Campo",
+      "date": "2026-09-07",
+      "note": ""
     }
   ],
   "cuotas": [
