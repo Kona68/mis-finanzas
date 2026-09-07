@@ -1609,6 +1609,16 @@
       "subcat": "Otros",
       "date": "2026-09-07",
       "note": ""
+    },
+    {
+      "id": 1788791940486,
+      "type": "gasto",
+      "desc": "edenor",
+      "amount": 23795,
+      "cat": "Facturas",
+      "subcat": "Electricidad",
+      "date": "2026-09-07",
+      "note": ""
     }
   ],
   "cuotas": [
