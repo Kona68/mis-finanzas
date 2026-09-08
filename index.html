@@ -56,6 +56,7 @@
     .metric-positive { background: #E1F5EE; }
     .metric-negative { background: #FCEBEB; }
     .metric-info { background: #E6F1FB; }
+    .metric-invest { background: #F1E8FA; }
     .metric-label { font-size: 12px; margin-bottom: 6px; }
     .metric-neutral .metric-label { color: var(--text-secondary); }
     .metric-income .metric-label { color: #3B6D11; }
@@ -151,7 +152,7 @@
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
     /* ── CUOTAS ── */
-    .cuotas-table-wrap { border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 1.25rem; }
+    .cuotas-table-wrap { border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; overflow-x: auto; margin-bottom: 1.25rem; -webkit-overflow-scrolling: touch; }
     .cuotas-table { width: 100%; border-collapse: collapse; font-size: 13px; }
     .cuotas-table th { padding: 9px 12px; text-align: left; font-size: 11px; font-weight: 500; color: var(--text-secondary); background: var(--bg-secondary); white-space: nowrap; border-bottom: 0.5px solid var(--border); }
     .cuotas-table td { padding: 10px 12px; border-bottom: 0.5px solid var(--border); color: var(--text-primary); vertical-align: middle; }
@@ -169,6 +170,8 @@
 
     .progress-bar { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
     .progress-fill { height: 100%; border-radius: 3px; }
+
+    .rubro-select { font-size: 11px; font-weight: 500; padding: 3px 6px; border-radius: 4px; border: 0.5px solid var(--border); background: var(--bg-primary); font-family: var(--font); cursor: pointer; max-width: 132px; }
 
     .card-chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; white-space: nowrap; }
 
@@ -197,8 +200,8 @@
       .form-row, .form-row-3, .form-row-4, .two-col { grid-template-columns: 1fr; }
       .cat-grid, .tarjetas-grid { grid-template-columns: 1fr; }
       .header { flex-direction: column; align-items: flex-start; gap: 10px; }
-      .cuotas-table th:nth-child(5), .cuotas-table td:nth-child(5),
-      .cuotas-table th:nth-child(4), .cuotas-table td:nth-child(4) { display: none; }
+      .cuotas-table th:nth-child(6), .cuotas-table td:nth-child(6),
+      .cuotas-table th:nth-child(5), .cuotas-table td:nth-child(5) { display: none; }
     }
   </style>
 </head>
@@ -270,6 +273,7 @@
           <tr>
             <th>Descripción</th>
             <th>Tarjeta</th>
+            <th>Rubro</th>
             <th style="text-align:center">Cuotas</th>
             <th>Cuota mensual</th>
             <th>Total</th>
@@ -294,10 +298,11 @@
         <button class="range-btn" onclick="setRange(12,this)">12 meses</button>
       </div>
     </div>
-    <p class="section-title">Ingresos · Gastos totales · Balance</p>
+    <p class="section-title">Ingresos · Gastos totales · Inversiones · Balance</p>
     <div class="legend-row">
       <span class="legend-item"><span class="legend-dot" style="background:#1D9E75"></span>Ingresos</span>
       <span class="legend-item"><span class="legend-dot" style="background:#D85A30"></span>Gastos totales</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#9C5BD4"></span>Inversiones</span>
       <span class="legend-item"><span class="legend-dot" style="background:#3266ad"></span>Balance</span>
     </div>
     <div class="chart-wrap"><canvas id="evoGlobalChart"></canvas></div>
@@ -311,6 +316,7 @@
     <div class="legend-row">
       <span class="legend-item"><span class="legend-dot" style="background:#1D9E75"></span>Ingresos</span>
       <span class="legend-item"><span class="legend-dot" style="background:#D85A30"></span>Gastos</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#9C5BD4"></span>Inversiones</span>
       <span class="legend-item"><span class="legend-dot" style="background:#3266ad"></span>Balance</span>
     </div>
     <div class="chart-wrap"><canvas id="lineChart"></canvas></div>
@@ -372,7 +378,7 @@ const SUBCATS_GASTO = {
   Casa:['Alquiler/Hipoteca','Mantenimiento','Limpieza','Decoración','Otros'],
   Facturas:['Electricidad','Agua','Gas','Internet','Teléfono','Otros'],
   Compras:['Ropa','Electrónica','Libros','Otros artículos'],
-  Comida:['Supermercado','Almacén','Verdulería','Carnicería','Otros'],
+  Comida:['Supermercado','Almacén','Verdulería','Carnicería','Pedido de comida','Otros'],
   Salud:['Higiene personal','Remedios','Médico','Otros'],
   Regalos:['Cumpleaños','Otros'],
   Transporte:['Auto','Colectivo/Subte','Taxi/Uber','Bicicleta','Otros'],
@@ -617,9 +623,63 @@ function esViva(c) { return c.activa && (c.total - c.pagadas) > 0; }
 function cuotasVivas() { return cuotas.filter(esViva); }
 function cuotasArchivadas() { return cuotas.filter(c => !esViva(c)); }
 
-/* Cuotas activas del mes actual → monto total mensual */
+/* Cuotas activas del mes actual → monto total mensual (el resumen de la tarjeta) */
 function getCuotasMensuales() {
   return cuotasVivas().reduce((s, c) => s + c.monto, 0);
+}
+
+const CAT_INVERSION = 'Inversiones';
+
+/* ── Rubro de cada compra en cuotas ──
+   Hasta el 7/9 todas las cuotas caian en "Compras": el resumen mostraba
+   $364.635 de Compras que en realidad eran comida, salud y deportes.
+   Ahora cada compra lleva su propio rubro y las que no lo tengan
+   cargado caen en Compras, que es como se comportaba antes. */
+const CAT_CUOTA_DEFAULT = 'Compras';
+function catCuota(c) { return c.cat || CAT_CUOTA_DEFAULT; }
+
+function cuotasPorCategoria() {
+  const m = {};
+  cuotasVivas().forEach(c => { const k = catCuota(c); m[k] = (m[k] || 0) + c.monto; });
+  return m;
+}
+function cuotasMensualGasto()     { return cuotasVivas().filter(c => catCuota(c) !== CAT_INVERSION).reduce((s, c) => s + c.monto, 0); }
+function cuotasMensualInversion() { return cuotasVivas().filter(c => catCuota(c) === CAT_INVERSION).reduce((s, c) => s + c.monto, 0); }
+
+/* ── Invertir no es gastar ──
+   La plata cambia de forma, no se consume: sale del disponible igual,
+   pero no entra en "Gastos" ni en la distribucion por categoria. Antes
+   los $997.067 puestos en animales y en el mercado en septiembre se
+   mezclaban con la comida y las facturas. */
+function esInversion(e) { return e.type === 'gasto' && e.cat === CAT_INVERSION; }
+function esGasto(e)     { return e.type === 'gasto' && e.cat !== CAT_INVERSION; }
+
+function esMesActualVista(mo, yr) { return mo === now.getMonth() && yr === now.getFullYear(); }
+
+/* Gastos del mes por rubro, con las cuotas repartidas cada una en el suyo.
+   Una sola funcion para que la torta, las barras y Evolucion no puedan
+   contradecirse. */
+function gastosPorCategoria(mo, yr) {
+  const m = {};
+  getMonthData(mo, yr).filter(esGasto).forEach(e => { m[e.cat] = (m[e.cat] || 0) + e.amount; });
+  if (esMesActualVista(mo, yr)) {
+    const porCat = cuotasPorCategoria();
+    Object.keys(porCat).forEach(k => { if (k !== CAT_INVERSION) m[k] = (m[k] || 0) + porCat[k]; });
+  }
+  return m;
+}
+
+/* Inversiones del mes: las cargadas a mano mas las cuotas marcadas como tales */
+function inversionesDelMes(mo, yr) {
+  const base = getMonthData(mo, yr).filter(esInversion).reduce((s, e) => s + e.amount, 0);
+  return base + (esMesActualVista(mo, yr) ? cuotasMensualInversion() : 0);
+}
+function gastosDelMes(mo, yr) {
+  const base = getMonthData(mo, yr).filter(esGasto).reduce((s, e) => s + e.amount, 0);
+  return base + (esMesActualVista(mo, yr) ? cuotasMensualGasto() : 0);
+}
+function ingresosDelMes(mo, yr) {
+  return getMonthData(mo, yr).filter(e => e.type === 'ingreso').reduce((s, e) => s + e.amount, 0);
 }
 
 /* ═══════════════════════════════════════════
@@ -627,52 +687,52 @@ function getCuotasMensuales() {
 ═══════════════════════════════════════════ */
 function renderMetrics() {
   const md = getMonthData(viewMonth, viewYear);
-  const ingresos = md.filter(e => e.type === 'ingreso').reduce((s, e) => s + e.amount, 0);
-  const gastosManuales = md.filter(e => e.type === 'gasto').reduce((s, e) => s + e.amount, 0);
+  const esMesActual = esMesActualVista(viewMonth, viewYear);
 
-  // Cuotas solo se suman al mes actual
-  const esMesActual = viewMonth === now.getMonth() && viewYear === now.getFullYear();
+  const ingresos    = ingresosDelMes(viewMonth, viewYear);
+  const gastos      = gastosDelMes(viewMonth, viewYear);
+  const inversiones = inversionesDelMes(viewMonth, viewYear);
+
+  const gastosManuales = md.filter(esGasto).reduce((s, e) => s + e.amount, 0);
   const cuotasMes = esMesActual ? getCuotasMensuales() : 0;
-  const gastos = gastosManuales + cuotasMes;
 
-  const balance = ingresos - gastos;
-  const pct = ingresos > 0 ? Math.round((gastos / ingresos) * 100) : 0;
+  // La inversion no es gasto, pero la plata igual salio del bolsillo:
+  // no suma a Gastos y sin embargo se resta del balance.
+  const usado = gastos + inversiones;
+  const balance = ingresos - usado;
+  const pct = ingresos > 0 ? Math.round((usado / ingresos) * 100) : 0;
   const cls = balance >= 0 ? 'metric-positive' : 'metric-negative';
 
   let metricsHTML = `
     <div class="metric metric-income"><div class="metric-label">Ingresos</div><div class="metric-value">${fmtMoney(ingresos)}</div><div class="metric-sub">${md.filter(e => e.type === 'ingreso').length} registros</div></div>
-    <div class="metric metric-expense"><div class="metric-label">Gastos</div><div class="metric-value">${fmtMoney(gastosManuales)}</div><div class="metric-sub">${md.filter(e => e.type === 'gasto').length} registros</div></div>`;
+    <div class="metric metric-expense"><div class="metric-label">Gastos</div><div class="metric-value">${fmtMoney(gastosManuales)}</div><div class="metric-sub">${md.filter(esGasto).length} registros</div></div>`;
   if (esMesActual && cuotasMes > 0) {
-    metricsHTML += `<div class="metric metric-info"><div class="metric-label">Cuotas del mes</div><div class="metric-value">${fmtMoney(cuotasMes)}</div><div class="metric-sub">${cuotas.filter(c => c.activa && (c.total - c.pagadas) > 0).length} activas</div></div>`;
+    metricsHTML += `<div class="metric metric-info"><div class="metric-label">Cuotas del mes</div><div class="metric-value">${fmtMoney(cuotasMes)}</div><div class="metric-sub">${cuotasVivas().length} activas</div></div>`;
+  }
+  if (inversiones > 0) {
+    metricsHTML += `<div class="metric metric-invest"><div class="metric-label" style="color:#6B3A9E;">Inversiones</div><div class="metric-value" style="color:#6B3A9E;">${fmtMoney(inversiones)}</div><div class="metric-sub" style="color:#6B3A9E;">No cuenta como gasto</div></div>`;
   }
   metricsHTML += `
-    <div class="metric ${cls}"><div class="metric-label">Balance</div><div class="metric-value">${balance >= 0 ? '+' : ''}${fmtMoney(balance)}</div><div class="metric-sub">${pct}% gastado</div></div>
+    <div class="metric ${cls}"><div class="metric-label">Balance</div><div class="metric-value">${balance >= 0 ? '+' : ''}${fmtMoney(balance)}</div><div class="metric-sub">${pct}% usado</div></div>
     <div class="metric metric-neutral"><div class="metric-label">Disponible</div><div class="metric-value">${fmtMoney(Math.max(0, balance))}</div><div class="metric-sub">${balance < 0 ? 'Déficit' : 'Superávit'}</div></div>`;
   document.getElementById('metrics-grid').innerHTML = metricsHTML;
 
+  const extras = [];
+  if (esMesActual && cuotasMes > 0) extras.push('cuotas');
+  if (inversiones > 0) extras.push('inversiones');
   const pctSafe = Math.min(pct, 100);
   const barColor = pct > 100 ? '#E24B4A' : pct > 80 ? '#BA7517' : '#1D9E75';
   document.getElementById('balance-bar').innerHTML = `
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-      <span style="font-size:13px;color:var(--text-secondary);">Uso del ingreso${esMesActual && cuotasMes > 0 ? ' (incl. cuotas)' : ''}</span>
+      <span style="font-size:13px;color:var(--text-secondary);">Uso del ingreso${extras.length ? ` (incl. ${extras.join(' e ')})` : ''}</span>
       <span style="font-size:13px;font-weight:500;color:var(--text-primary);">${pct}%</span>
     </div>
     <div class="balance-bar-track"><div class="balance-bar-fill" style="width:${pctSafe}%;background:${barColor};"></div></div>
-    <div class="balance-bar-labels"><span>${fmtMoney(gastos)} gastados</span><span>${fmtMoney(ingresos)} ingresados</span></div>`;
+    <div class="balance-bar-labels"><span>${fmtMoney(usado)} usados</span><span>${fmtMoney(ingresos)} ingresados</span></div>`;
 }
 
 function renderPieChart() {
-  const md = getMonthData(viewMonth, viewYear).filter(e => e.type === 'gasto');
-  const bycat = {};
-  md.forEach(e => { bycat[e.cat] = (bycat[e.cat] || 0) + e.amount; });
-
-  // Cuotas → impactan en "Compras" solo en mes actual
-  const esMesActual = viewMonth === now.getMonth() && viewYear === now.getFullYear();
-  if (esMesActual) {
-    const cuotasMes = getCuotasMensuales();
-    if (cuotasMes > 0) bycat['Compras'] = (bycat['Compras'] || 0) + cuotasMes;
-  }
-
+  const bycat = gastosPorCategoria(viewMonth, viewYear);
   const cats = Object.keys(bycat).sort((a, b) => bycat[b] - bycat[a]);
   const total = cats.reduce((s, c) => s + bycat[c], 0);
   document.getElementById('pie-legend').innerHTML = cats.map(c =>
@@ -687,14 +747,7 @@ function renderPieChart() {
 }
 
 function renderBarChartResumen() {
-  const md = getMonthData(viewMonth, viewYear).filter(e => e.type === 'gasto');
-  const bycat = {};
-  md.forEach(e => { bycat[e.cat] = (bycat[e.cat] || 0) + e.amount; });
-  const esMesActual = viewMonth === now.getMonth() && viewYear === now.getFullYear();
-  if (esMesActual) {
-    const cuotasMes = getCuotasMensuales();
-    if (cuotasMes > 0) bycat['Compras'] = (bycat['Compras'] || 0) + cuotasMes;
-  }
+  const bycat = gastosPorCategoria(viewMonth, viewYear);
   const cats = Object.keys(bycat).sort((a, b) => bycat[b] - bycat[a]);
   if (barInst) barInst.destroy();
   if (!cats.length) return;
@@ -749,6 +802,25 @@ function setCuotasFiltro(id) { cuotasFiltroTarjeta = id; renderCuotas(); }
 
 function toggleArchivadas() { mostrarArchivadas = !mostrarArchivadas; renderCuotas(); }
 
+/* El rubro se cambia en la misma fila: Facu es el unico que sabe que
+   vendio cada comercio, asi que la clasificacion tiene que ser corregible
+   sin tocar el codigo. */
+function selectRubroHTML(c) {
+  const cat = catCuota(c);
+  const color = CAT_COLORS[cat] || '#888780';
+  return `<select class="rubro-select" style="color:${color};border-color:${color}55;" onchange="setCuotaCat(${c.id}, this.value)">
+    ${ALL_GASTO_CATS.map(k => `<option value="${k}"${k === cat ? ' selected' : ''}>${k}</option>`).join('')}
+  </select>`;
+}
+
+function setCuotaCat(id, cat) {
+  const c = cuotas.find(x => x.id === id);
+  if (!c || c.cat === cat) return;
+  c.cat = cat;
+  saveAll(); renderCuotas(); renderResumen();
+  showToast(`"${c.desc}" → ${cat}`);
+}
+
 function filaCuotaHTML(c, archivada) {
   const restantes = c.total - c.pagadas;
   const pct = Math.round((c.pagadas / c.total) * 100);
@@ -772,6 +844,7 @@ function filaCuotaHTML(c, archivada) {
       </div>
     </td>
     <td>${cardChipHTML(c.tarjetaId)}</td>
+    <td>${selectRubroHTML(c)}</td>
     <td style="text-align:center;font-size:12px;color:var(--text-secondary);">${cuotasTxt}</td>
     <td style="font-weight:500;">${fmtMoney(c.monto)}</td>
     <td style="color:var(--text-secondary);font-size:12px;">${fmtMoney(c.total * c.monto)}</td>
@@ -802,7 +875,7 @@ function renderCuotas() {
   const tbody = document.getElementById('cuotas-tbody');
   tbody.innerHTML = vivas.length
     ? vivas.map(c => filaCuotaHTML(c, false)).join('')
-    : `<tr><td colspan="8" style="text-align:center;padding:2.5rem;color:var(--text-tertiary);font-size:13px;">No hay cuotas activas para este filtro</td></tr>`;
+    : `<tr><td colspan="9" style="text-align:center;padding:2.5rem;color:var(--text-tertiary);font-size:13px;">No hay cuotas activas para este filtro</td></tr>`;
 
   const arch = document.getElementById('archive-section');
   if (!arch) return;
@@ -813,7 +886,7 @@ function renderCuotas() {
       <button class="link-btn" onclick="toggleArchivadas()">${mostrarArchivadas ? 'Ocultar' : 'Ver historial'}</button>
     </div>
     ${mostrarArchivadas ? `<div class="cuotas-table-wrap"><table class="cuotas-table">
-      <thead><tr><th>Descripción</th><th>Tarjeta</th><th style="text-align:center">Cuotas</th><th>Cuota mensual</th><th>Total</th><th>Restante</th><th>Progreso</th><th></th></tr></thead>
+      <thead><tr><th>Descripción</th><th>Tarjeta</th><th>Rubro</th><th style="text-align:center">Cuotas</th><th>Cuota mensual</th><th>Total</th><th>Restante</th><th>Progreso</th><th></th></tr></thead>
       <tbody>${archivadas.map(c => filaCuotaHTML(c, true)).join('')}</tbody>
     </table></div>` : ''}`;
 }
@@ -844,6 +917,7 @@ function cancelarCuota(id) {
 function openModal(type) {
   const box = document.getElementById('modal-box');
   const tarjetaOpts = tarjetas.map(t => `<option value="${t.id}">${t.nombre}</option>`).join('');
+  const rubroOpts = ALL_GASTO_CATS.map(k => `<option value="${k}"${k === CAT_CUOTA_DEFAULT ? ' selected' : ''}>${k}</option>`).join('');
 
   if (type === 'tarjeta') {
     box.innerHTML = `<h3>Nueva tarjeta</h3>
@@ -867,7 +941,7 @@ function openModal(type) {
       </div>
       <div class="form-row">
         <div class="form-group"><label>Cuotas ya pagadas</label><input id="m-cpagadas" type="number" value="0" min="0"></div>
-        <div class="form-group" style="justify-content:flex-end;"></div>
+        <div class="form-group"><label>Rubro</label><select id="m-ccat">${rubroOpts}</select></div>
       </div>
       <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:1rem;">
         <button class="btn-secondary" onclick="closeModal()">Cancelar</button>
@@ -895,9 +969,10 @@ function agregarCuota() {
   const total = parseInt(document.getElementById('m-ctotal').value);
   const pagadas = parseInt(document.getElementById('m-cpagadas').value) || 0;
   const tarjetaId = document.getElementById('m-ctarjeta').value;
+  const cat = document.getElementById('m-ccat').value || CAT_CUOTA_DEFAULT;
   if (!desc || !monto || !total) { alert('Completá descripción, monto y cantidad de cuotas'); return; }
   if (pagadas >= total) { alert('Las cuotas pagadas no pueden ser iguales o mayores al total'); return; }
-  cuotas.push({ id: Date.now(), desc, total, pagadas, monto, activa: true, tarjetaId });
+  cuotas.push({ id: Date.now(), desc, total, pagadas, monto, activa: true, tarjetaId, cat });
   saveAll();
   closeModal(); renderCuotas(); renderResumen(); showToast('Compra en cuotas agregada');
 }
@@ -915,13 +990,11 @@ function setRange(n, el) {
 function renderEvolucion() {
   const months = getMonthsBack(evoRange);
   const labels = months.map(({ mo, yr }) => MONTHS_ES[mo].slice(0, 3) + (yr !== now.getFullYear() ? ` '${String(yr).slice(2)}` : ''));
-  const totalGastos = months.map(({ mo, yr }) => {
-    const base = getMonthData(mo, yr).filter(e => e.type === 'gasto').reduce((s, e) => s + e.amount, 0);
-    const esMesActual = mo === now.getMonth() && yr === now.getFullYear();
-    return base + (esMesActual ? getCuotasMensuales() : 0);
-  });
-  const totalIngresos = months.map(({ mo, yr }) => getMonthData(mo, yr).filter(e => e.type === 'ingreso').reduce((s, e) => s + e.amount, 0));
-  const balance = totalIngresos.map((inc, i) => inc - totalGastos[i]);
+  const totalGastos      = months.map(({ mo, yr }) => gastosDelMes(mo, yr));
+  const totalInversiones = months.map(({ mo, yr }) => inversionesDelMes(mo, yr));
+  const totalIngresos    = months.map(({ mo, yr }) => ingresosDelMes(mo, yr));
+  // Invertir no es gastar, pero la plata salio igual: el balance resta las dos
+  const balance = totalIngresos.map((inc, i) => inc - totalGastos[i] - totalInversiones[i]);
 
   if (evoGlobalInst) evoGlobalInst.destroy();
   evoGlobalInst = new Chart(document.getElementById('evoGlobalChart'), {
@@ -929,6 +1002,7 @@ function renderEvolucion() {
     data: { labels, datasets: [
       { label: 'Ingresos', data: totalIngresos, borderColor: '#1D9E75', backgroundColor: 'rgba(29,158,117,0.07)', tension: 0.35, fill: true, pointBackgroundColor: '#1D9E75', pointRadius: 4, borderWidth: 2 },
       { label: 'Gastos', data: totalGastos, borderColor: '#D85A30', backgroundColor: 'rgba(216,90,48,0.07)', tension: 0.35, fill: true, pointBackgroundColor: '#D85A30', pointRadius: 4, borderWidth: 2 },
+      { label: 'Inversiones', data: totalInversiones, borderColor: '#9C5BD4', backgroundColor: 'transparent', tension: 0.35, fill: false, pointBackgroundColor: '#9C5BD4', pointRadius: 4, borderWidth: 2 },
       { label: 'Balance', data: balance, borderColor: '#3266ad', backgroundColor: 'transparent', tension: 0.35, fill: false, pointBackgroundColor: '#3266ad', pointRadius: 4, borderWidth: 2, borderDash: [5, 4] }
     ] },
     options: { responsive: true, maintainAspectRatio: false,
@@ -936,9 +1010,11 @@ function renderEvolucion() {
       scales: { y: { ticks: { callback: v => fmtMoney(v), font: { size: 11 } }, grid: { color: 'rgba(128,128,128,0.1)' } }, x: { ticks: { font: { size: 11 } }, grid: { display: false } } } }
   });
 
-  const activeCats = ALL_GASTO_CATS.filter(cat =>
-    months.some(({ mo, yr }) => getMonthData(mo, yr).filter(e => e.type === 'gasto' && e.cat === cat).length > 0)
-  );
+  // Un mapa por mes, calculado una sola vez, con las cuotas ya repartidas por rubro
+  const mapas = months.map(({ mo, yr }) => gastosPorCategoria(mo, yr));
+  const activeCats = ALL_GASTO_CATS.filter(cat => cat === CAT_INVERSION
+    ? totalInversiones.some(v => v > 0)
+    : mapas.some(m => (m[cat] || 0) > 0));
   const container = document.getElementById('cat-cards');
   container.innerHTML = '';
   Object.values(catChartInsts).forEach(c => { try { c.destroy(); } catch (e) {} });
@@ -947,12 +1023,8 @@ function renderEvolucion() {
     return;
   }
   activeCats.forEach(cat => {
-    const vals = months.map(({ mo, yr }) => {
-      const base = getMonthData(mo, yr).filter(e => e.type === 'gasto' && e.cat === cat).reduce((s, e) => s + e.amount, 0);
-      // Cuotas impactan en Compras solo en mes actual
-      const esMesActual = mo === now.getMonth() && yr === now.getFullYear();
-      return base + (cat === 'Compras' && esMesActual ? getCuotasMensuales() : 0);
-    });
+    const esInv = cat === CAT_INVERSION;
+    const vals = esInv ? totalInversiones : mapas.map(m => m[cat] || 0);
     const total = vals.reduce((s, v) => s + v, 0);
     if (total === 0) return;
     const color = CAT_COLORS[cat];
@@ -961,7 +1033,7 @@ function renderEvolucion() {
     card.className = 'cat-card';
     card.innerHTML = `
       <div class="cat-card-header">
-        <span class="cat-card-title"><span class="cat-dot" style="background:${color}"></span>${cat}</span>
+        <span class="cat-card-title"><span class="cat-dot" style="background:${color}"></span>${cat}${esInv ? ' <span style="font-size:10px;color:var(--text-tertiary);font-weight:400;">(no es gasto)</span>' : ''}</span>
         <span class="cat-card-total">${fmtMoney(total)} total</span>
       </div>
       <div style="position:relative;height:100px;"><canvas id="${canvasId}"></canvas></div>
@@ -973,6 +1045,8 @@ function renderEvolucion() {
     requestAnimationFrame(() => {
       const canvas = document.getElementById(canvasId);
       if (!canvas) return;
+      const previo = Chart.getChart(canvas);
+      if (previo) previo.destroy();
       const inst = new Chart(canvas, {
         type: 'line',
         data: { labels, datasets: [
@@ -995,19 +1069,17 @@ function renderEvolucion() {
 function renderVariacion() {
   const months6 = getMonthsBack(6);
   const labels = months6.map(({ mo }) => MONTHS_ES[mo].slice(0, 3));
-  const incomes = months6.map(({ mo, yr }) => getMonthData(mo, yr).filter(e => e.type === 'ingreso').reduce((s, e) => s + e.amount, 0));
-  const expenses = months6.map(({ mo, yr }) => {
-    const base = getMonthData(mo, yr).filter(e => e.type === 'gasto').reduce((s, e) => s + e.amount, 0);
-    const esMesActual = mo === now.getMonth() && yr === now.getFullYear();
-    return base + (esMesActual ? getCuotasMensuales() : 0);
-  });
-  const balances = incomes.map((inc, i) => inc - expenses[i]);
+  const incomes     = months6.map(({ mo, yr }) => ingresosDelMes(mo, yr));
+  const expenses    = months6.map(({ mo, yr }) => gastosDelMes(mo, yr));
+  const inversiones = months6.map(({ mo, yr }) => inversionesDelMes(mo, yr));
+  const balances = incomes.map((inc, i) => inc - expenses[i] - inversiones[i]);
   if (lineInst) lineInst.destroy();
   lineInst = new Chart(document.getElementById('lineChart'), {
     type: 'line',
     data: { labels, datasets: [
       { label: 'Ingresos', data: incomes, borderColor: '#1D9E75', tension: 0.3, fill: false, pointBackgroundColor: '#1D9E75', pointRadius: 4 },
       { label: 'Gastos', data: expenses, borderColor: '#D85A30', tension: 0.3, fill: false, pointBackgroundColor: '#D85A30', pointRadius: 4 },
+      { label: 'Inversiones', data: inversiones, borderColor: '#9C5BD4', tension: 0.3, fill: false, pointBackgroundColor: '#9C5BD4', pointRadius: 4 },
       { label: 'Balance', data: balances, borderColor: '#3266ad', tension: 0.3, fill: false, pointBackgroundColor: '#3266ad', pointRadius: 4, borderDash: [4, 3] }
     ] },
     options: { responsive: true, maintainAspectRatio: false,
@@ -1028,17 +1100,19 @@ function renderVariacion() {
         <th>Mes</th>
         <th style="text-align:right;color:#1D9E75;">Ingresos</th>
         <th style="text-align:right;color:#D85A30;">Gastos</th>
+        <th style="text-align:right;color:#9C5BD4;">Inversiones</th>
         <th style="text-align:right;">Balance</th>
-        <th style="text-align:right;">% gastado</th>
+        <th style="text-align:right;">% usado</th>
       </tr></thead>
       <tbody>${months6.map(({ mo, yr }, i) => {
         const bal = balances[i];
-        const pct = incomes[i] > 0 ? Math.round(expenses[i] / incomes[i] * 100) : 0;
+        const pct = incomes[i] > 0 ? Math.round((expenses[i] + inversiones[i]) / incomes[i] * 100) : 0;
         const bc = bal >= 0 ? '#085041' : '#791F1F';
         return `<tr>
           <td>${MONTHS_ES[mo]} ${yr}</td>
           <td style="text-align:right;color:#1D9E75;">${fmtMoney(incomes[i])}</td>
           <td style="text-align:right;color:#D85A30;">${fmtMoney(expenses[i])}</td>
+          <td style="text-align:right;color:#9C5BD4;">${inversiones[i] > 0 ? fmtMoney(inversiones[i]) : '—'}</td>
           <td style="text-align:right;font-weight:500;color:${bc};">${bal >= 0 ? '+' : ''}${fmtMoney(bal)}</td>
           <td style="text-align:right;color:${pct > 100 ? '#A32D2D' : pct > 80 ? '#BA7517' : 'var(--text-secondary)'};">${pct}%</td>
         </tr>`;
