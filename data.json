@@ -1649,6 +1649,16 @@
       "subcat": "Otros",
       "date": "2026-09-07",
       "note": ""
+    },
+    {
+      "id": 1788828973894,
+      "type": "gasto",
+      "desc": "Sportclub",
+      "amount": 80000,
+      "cat": "Deportes",
+      "subcat": "Cuota gimnasio",
+      "date": "2026-09-08",
+      "note": ""
     }
   ],
   "cuotas": [
@@ -2017,7 +2027,7 @@
       "desc": "Termo",
       "total": 3,
       "pagadas": 0,
-      "monto": 32284.0,
+      "monto": 32284,
       "activa": true,
       "tarjetaId": "vb",
       "cat": "Compras"
@@ -2037,7 +2047,7 @@
       "desc": "Omega 3",
       "total": 9,
       "pagadas": 0,
-      "monto": 21385.0,
+      "monto": 21385,
       "activa": true,
       "tarjetaId": "vb",
       "cat": "Salud"
