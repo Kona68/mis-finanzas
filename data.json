@@ -1660,7 +1660,8 @@
       "pagadas": 3,
       "monto": 4344.93,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Comida"
     },
     {
       "id": 102,
@@ -1670,7 +1671,8 @@
       "pagadas": 3,
       "monto": 15238.33,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Comida"
     },
     {
       "id": 103,
@@ -1680,7 +1682,8 @@
       "pagadas": 3,
       "monto": 7856.33,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Comida"
     },
     {
       "id": 104,
@@ -1690,7 +1693,8 @@
       "pagadas": 3,
       "monto": 18150,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Viajes"
     },
     {
       "id": 105,
@@ -1700,7 +1704,8 @@
       "pagadas": 3,
       "monto": 6673,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Comida"
     },
     {
       "id": 106,
@@ -1710,7 +1715,8 @@
       "pagadas": 3,
       "monto": 6206.33,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Comida"
     },
     {
       "id": 107,
@@ -1720,7 +1726,8 @@
       "pagadas": 3,
       "monto": 6600,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Compras"
     },
     {
       "id": 108,
@@ -1730,7 +1737,8 @@
       "pagadas": 3,
       "monto": 6211.33,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Comida"
     },
     {
       "id": 109,
@@ -1740,7 +1748,8 @@
       "pagadas": 3,
       "monto": 4127.33,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Comida"
     },
     {
       "id": 110,
@@ -1750,7 +1759,8 @@
       "pagadas": 5,
       "monto": 2492.91,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Comida"
     },
     {
       "id": 111,
@@ -1760,7 +1770,8 @@
       "pagadas": 6,
       "monto": 4166.33,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Compras"
     },
     {
       "id": 112,
@@ -1770,7 +1781,8 @@
       "pagadas": 6,
       "monto": 13263.73,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Compras"
     },
     {
       "id": 113,
@@ -1780,7 +1792,8 @@
       "pagadas": 6,
       "monto": 3503.41,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Comida"
     },
     {
       "id": 114,
@@ -1790,7 +1803,8 @@
       "pagadas": 6,
       "monto": 9249.94,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Compras"
     },
     {
       "id": 115,
@@ -1800,7 +1814,8 @@
       "pagadas": 7,
       "monto": 1645.83,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Compras"
     },
     {
       "id": 116,
@@ -1810,7 +1825,8 @@
       "pagadas": 7,
       "monto": 2745.08,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Compras"
     },
     {
       "id": 117,
@@ -1820,7 +1836,8 @@
       "pagadas": 7,
       "monto": 2332.5,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Compras"
     },
     {
       "id": 118,
@@ -1830,7 +1847,8 @@
       "pagadas": 9,
       "monto": 7491.69,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Compras"
     },
     {
       "id": 119,
@@ -1840,7 +1858,8 @@
       "pagadas": 12,
       "monto": 23920.45,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Compras"
     },
     {
       "id": 120,
@@ -1850,7 +1869,8 @@
       "pagadas": 12,
       "monto": 1390.91,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Compras"
     },
     {
       "id": 121,
@@ -1860,7 +1880,8 @@
       "pagadas": 12,
       "monto": 6391.75,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Compras"
     },
     {
       "id": 122,
@@ -1870,7 +1891,8 @@
       "pagadas": 12,
       "monto": 17083.25,
       "activa": true,
-      "tarjetaId": "vs"
+      "tarjetaId": "vs",
+      "cat": "Compras"
     },
     {
       "id": 201,
@@ -1881,7 +1903,8 @@
       "monto": 8373.75,
       "activa": true,
       "tarjetaId": "vb",
-      "totalEstimado": true
+      "totalEstimado": true,
+      "cat": "Compras"
     },
     {
       "id": 202,
@@ -1892,7 +1915,8 @@
       "monto": 33891.66,
       "activa": true,
       "tarjetaId": "vb",
-      "totalEstimado": true
+      "totalEstimado": true,
+      "cat": "Deportes"
     },
     {
       "id": 203,
@@ -1903,7 +1927,8 @@
       "monto": 52664.33,
       "activa": true,
       "tarjetaId": "vb",
-      "totalEstimado": true
+      "totalEstimado": true,
+      "cat": "Compras"
     },
     {
       "id": 301,
@@ -1914,7 +1939,8 @@
       "monto": 9966.66,
       "activa": true,
       "tarjetaId": "mb",
-      "totalEstimado": true
+      "totalEstimado": true,
+      "cat": "Deportes"
     },
     {
       "id": 302,
@@ -1925,7 +1951,8 @@
       "monto": 1888.77,
       "activa": true,
       "tarjetaId": "mb",
-      "totalEstimado": true
+      "totalEstimado": true,
+      "cat": "Compras"
     },
     {
       "id": 303,
@@ -1936,7 +1963,8 @@
       "monto": 17309.96,
       "activa": true,
       "tarjetaId": "mb",
-      "totalEstimado": true
+      "totalEstimado": true,
+      "cat": "Compras"
     },
     {
       "id": 304,
@@ -1947,7 +1975,8 @@
       "monto": 3135,
       "activa": true,
       "tarjetaId": "mb",
-      "totalEstimado": true
+      "totalEstimado": true,
+      "cat": "Compras"
     },
     {
       "id": 305,
@@ -1958,7 +1987,8 @@
       "monto": 53990,
       "activa": true,
       "tarjetaId": "mb",
-      "totalEstimado": true
+      "totalEstimado": true,
+      "cat": "Compras"
     },
     {
       "id": 306,
@@ -1969,7 +1999,8 @@
       "monto": 12330,
       "activa": true,
       "tarjetaId": "mb",
-      "totalEstimado": true
+      "totalEstimado": true,
+      "cat": "Compras"
     },
     {
       "id": 1788214351933,
@@ -1978,7 +2009,38 @@
       "pagadas": 2,
       "monto": 25500,
       "activa": true,
-      "tarjetaId": "vb"
+      "tarjetaId": "vb",
+      "cat": "Salud"
+    },
+    {
+      "id": 1789148400001,
+      "desc": "Termo",
+      "total": 3,
+      "pagadas": 0,
+      "monto": 32284.0,
+      "activa": true,
+      "tarjetaId": "vb",
+      "cat": "Compras"
+    },
+    {
+      "id": 1789148400002,
+      "desc": "Auriculares",
+      "total": 9,
+      "pagadas": 0,
+      "monto": 18264.49,
+      "activa": true,
+      "tarjetaId": "vb",
+      "cat": "Compras"
+    },
+    {
+      "id": 1789148400003,
+      "desc": "Omega 3",
+      "total": 9,
+      "pagadas": 0,
+      "monto": 21385.0,
+      "activa": true,
+      "tarjetaId": "vb",
+      "cat": "Salud"
     }
   ],
   "tarjetas": [
