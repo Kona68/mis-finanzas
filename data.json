@@ -1689,6 +1689,16 @@
       "subcat": "Alquiler/Hipoteca",
       "date": "2026-09-10",
       "note": ""
+    },
+    {
+      "id": 1789044537852,
+      "type": "gasto",
+      "desc": "Abl",
+      "amount": 26000,
+      "cat": "Casa",
+      "subcat": "Alquiler/Hipoteca",
+      "date": "2026-09-10",
+      "note": ""
     }
   ],
   "cuotas": [
