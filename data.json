@@ -1699,6 +1699,16 @@
       "subcat": "Alquiler/Hipoteca",
       "date": "2026-09-10",
       "note": ""
+    },
+    {
+      "id": 1789044590551,
+      "type": "gasto",
+      "desc": "Deuda Ciudad",
+      "amount": 125000,
+      "cat": "Compras",
+      "subcat": "Otros artículos",
+      "date": "2026-09-10",
+      "note": ""
     }
   ],
   "cuotas": [
