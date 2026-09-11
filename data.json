@@ -1709,6 +1709,16 @@
       "subcat": "Otros artículos",
       "date": "2026-09-10",
       "note": ""
+    },
+    {
+      "id": 1789159122750,
+      "type": "gasto",
+      "desc": "lavado",
+      "amount": 35000,
+      "cat": "Transporte",
+      "subcat": "Auto",
+      "date": "2026-09-10",
+      "note": ""
     }
   ],
   "cuotas": [
