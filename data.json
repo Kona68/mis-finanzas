@@ -1729,6 +1729,16 @@
       "subcat": "Limpieza",
       "date": "2026-09-10",
       "note": ""
+    },
+    {
+      "id": 1789217907429,
+      "type": "gasto",
+      "desc": "Comida",
+      "amount": 30000,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-09-10",
+      "note": ""
     }
   ],
   "cuotas": [
