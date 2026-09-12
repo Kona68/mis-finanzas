@@ -1719,6 +1719,16 @@
       "subcat": "Auto",
       "date": "2026-09-10",
       "note": ""
+    },
+    {
+      "id": 1789217894747,
+      "type": "gasto",
+      "desc": "Limpieza",
+      "amount": 35500,
+      "cat": "Casa",
+      "subcat": "Limpieza",
+      "date": "2026-09-10",
+      "note": ""
     }
   ],
   "cuotas": [
