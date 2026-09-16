@@ -1749,6 +1749,16 @@
       "subcat": "Supermercado",
       "date": "2026-09-15",
       "note": ""
+    },
+    {
+      "id": 1789574267845,
+      "type": "gasto",
+      "desc": "Comida",
+      "amount": 10240,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-09-16",
+      "note": ""
     }
   ],
   "cuotas": [
