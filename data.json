@@ -1769,6 +1769,16 @@
       "subcat": "Médico",
       "date": "2026-09-16",
       "note": ""
+    },
+    {
+      "id": 1789578064002,
+      "type": "gasto",
+      "desc": "Salida jueves",
+      "amount": 84000,
+      "cat": "Entretenimiento",
+      "subcat": "Citas o salidas",
+      "date": "2026-09-16",
+      "note": ""
     }
   ],
   "cuotas": [
