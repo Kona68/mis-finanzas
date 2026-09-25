@@ -1819,6 +1819,16 @@
       "subcat": "Higiene personal",
       "date": "2026-09-25",
       "note": ""
+    },
+    {
+      "id": 1790338454926,
+      "type": "gasto",
+      "desc": "comida varios dias",
+      "amount": 25000,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-09-25",
+      "note": ""
     }
   ],
   "cuotas": [
