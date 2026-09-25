@@ -1809,6 +1809,16 @@
       "subcat": "Médico",
       "date": "2026-09-25",
       "note": ""
+    },
+    {
+      "id": 1790338433659,
+      "type": "gasto",
+      "desc": "Corte",
+      "amount": 20000,
+      "cat": "Salud",
+      "subcat": "Higiene personal",
+      "date": "2026-09-25",
+      "note": ""
     }
   ],
   "cuotas": [
