@@ -1799,6 +1799,16 @@
       "subcat": "Otros",
       "date": "2026-09-25",
       "note": ""
+    },
+    {
+      "id": 1790338407343,
+      "type": "gasto",
+      "desc": "pscicologa",
+      "amount": 50000,
+      "cat": "Salud",
+      "subcat": "Médico",
+      "date": "2026-09-25",
+      "note": ""
     }
   ],
   "cuotas": [
