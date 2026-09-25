@@ -1789,6 +1789,16 @@
       "subcat": "Supermercado",
       "date": "2026-09-18",
       "note": ""
+    },
+    {
+      "id": 1790338389509,
+      "type": "gasto",
+      "desc": "meli",
+      "amount": 20990,
+      "cat": "Facturas",
+      "subcat": "Otros",
+      "date": "2026-09-25",
+      "note": ""
     }
   ],
   "cuotas": [
