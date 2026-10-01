@@ -1859,6 +1859,16 @@
       "subcat": "Citas o salidas",
       "date": "2026-10-01",
       "note": ""
+    },
+    {
+      "id": 1790862388067,
+      "type": "gasto",
+      "desc": "Metrogas",
+      "amount": 63331,
+      "cat": "Facturas",
+      "subcat": "Gas",
+      "date": "2026-10-01",
+      "note": ""
     }
   ],
   "cuotas": [
