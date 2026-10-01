@@ -1879,6 +1879,16 @@
       "subcat": "Supermercado",
       "date": "2026-10-01",
       "note": ""
+    },
+    {
+      "id": 1790893842967,
+      "type": "gasto",
+      "desc": "Omeprazol",
+      "amount": 33500,
+      "cat": "Salud",
+      "subcat": "Remedios",
+      "date": "2026-10-01",
+      "note": ""
     }
   ],
   "cuotas": [
