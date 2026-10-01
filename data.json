@@ -1899,6 +1899,16 @@
       "subcat": "Otros",
       "date": "2026-10-01",
       "note": ""
+    },
+    {
+      "id": 1790898144530,
+      "type": "gasto",
+      "desc": "Celular",
+      "amount": 73000,
+      "cat": "Facturas",
+      "subcat": "Teléfono",
+      "date": "2026-10-01",
+      "note": ""
     }
   ],
   "cuotas": [
