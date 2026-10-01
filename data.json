@@ -1889,6 +1889,16 @@
       "subcat": "Remedios",
       "date": "2026-10-01",
       "note": ""
+    },
+    {
+      "id": 1790898130363,
+      "type": "gasto",
+      "desc": "Meli",
+      "amount": 20990,
+      "cat": "Facturas",
+      "subcat": "Otros",
+      "date": "2026-10-01",
+      "note": ""
     }
   ],
   "cuotas": [
