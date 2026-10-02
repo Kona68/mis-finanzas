@@ -1909,6 +1909,16 @@
       "subcat": "Teléfono",
       "date": "2026-10-01",
       "note": ""
+    },
+    {
+      "id": 1790941840045,
+      "type": "gasto",
+      "desc": "comida comprada",
+      "amount": 31210,
+      "cat": "Entretenimiento",
+      "subcat": "Restaurante",
+      "date": "2026-10-01",
+      "note": ""
     }
   ],
   "cuotas": [
