@@ -1949,6 +1949,16 @@
       "subcat": "Remedios",
       "date": "2026-10-06",
       "note": ""
+    },
+    {
+      "id": 1791247833976,
+      "type": "gasto",
+      "desc": "Comida varias",
+      "amount": 11000,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-10-06",
+      "note": ""
     }
   ],
   "cuotas": [
