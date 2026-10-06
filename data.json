@@ -1939,6 +1939,16 @@
       "subcat": "Supermercado",
       "date": "2026-10-02",
       "note": ""
+    },
+    {
+      "id": 1791247820290,
+      "type": "gasto",
+      "desc": "Farmacia",
+      "amount": 67870,
+      "cat": "Salud",
+      "subcat": "Remedios",
+      "date": "2026-10-06",
+      "note": ""
     }
   ],
   "cuotas": [
@@ -2256,7 +2266,7 @@
       "fecha": "28 May",
       "total": 6,
       "pagadas": 4,
-      "monto": 3135.0,
+      "monto": 3135,
       "activa": true,
       "tarjetaId": "mb",
       "cat": "Compras"
@@ -2267,7 +2277,7 @@
       "fecha": "23 May",
       "total": 6,
       "pagadas": 4,
-      "monto": 53990.0,
+      "monto": 53990,
       "activa": true,
       "tarjetaId": "mb",
       "cat": "Compras"
