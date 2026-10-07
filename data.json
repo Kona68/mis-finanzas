@@ -1969,6 +1969,16 @@
       "subcat": "Otros",
       "date": "2026-10-06",
       "note": ""
+    },
+    {
+      "id": 1791377977290,
+      "type": "gasto",
+      "desc": "comida",
+      "amount": 13000,
+      "cat": "Comida",
+      "subcat": "Otros",
+      "date": "2026-10-06",
+      "note": ""
     }
   ],
   "cuotas": [
