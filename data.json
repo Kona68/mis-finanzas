@@ -2408,6 +2408,16 @@
       "fecha": "07 Sep",
       "cat": "Salud",
       "activa": true
+    },
+    {
+      "id": 1791560936692,
+      "desc": "Compras varias mp",
+      "total": 3,
+      "pagadas": 0,
+      "monto": 55838,
+      "activa": true,
+      "tarjetaId": "vs",
+      "cat": "Compras"
     }
   ],
   "tarjetas": [
