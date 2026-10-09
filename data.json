@@ -1989,6 +1989,16 @@
       "subcat": "Alquiler/Hipoteca",
       "date": "2026-10-09",
       "note": ""
+    },
+    {
+      "id": 1791560797606,
+      "type": "gasto",
+      "desc": "Alquiler",
+      "amount": 761235,
+      "cat": "Casa",
+      "subcat": "Alquiler/Hipoteca",
+      "date": "2026-10-09",
+      "note": ""
     }
   ],
   "cuotas": [
