@@ -2441,6 +2441,30 @@
       "fecha": "05 Sep",
       "cat": "Comida",
       "activa": true
+    },
+    {
+      "id": 1791650000001,
+      "desc": "Inelrostore",
+      "tarjetaId": "vb",
+      "pagadas": 1,
+      "total": 18,
+      "monto": 255055.65,
+      "fecha": "09 Sep",
+      "cat": "Compras",
+      "activa": true,
+      "pagaSelecta": true
+    },
+    {
+      "id": 1791650000002,
+      "desc": "Kelver Computación",
+      "tarjetaId": "vb",
+      "pagadas": 3,
+      "total": 3,
+      "monto": 560000.0,
+      "fecha": "07 Jul",
+      "cat": "Compras",
+      "activa": true,
+      "pagaSelecta": true
     }
   ],
   "tarjetas": [

@@ -164,6 +164,7 @@
     .badge-amber { background: #FAEEDA; color: #854F0B; }
     .badge-info { background: #E6F1FB; color: #185FA5; }
     .badge-gray { background: var(--bg-secondary); color: var(--text-secondary); }
+    .badge-selecta { background: #EDE7F6; color: #5B3B8C; margin-left: 4px; }
     .archive-toggle { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-secondary); border-radius: var(--radius-md); margin-bottom: 1rem; font-size: 12px; color: var(--text-secondary); }
     .link-btn { background: none; border: none; color: var(--text-secondary); font-size: 12px; cursor: pointer; font-family: var(--font); text-decoration: underline; padding: 0; }
     .link-btn:hover { color: var(--text-primary); }
@@ -180,6 +181,7 @@
     .tarjeta-card-name { font-size: 13px; font-weight: 500; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
     .tarjeta-card-amount { font-size: 16px; font-weight: 500; color: #A32D2D; }
     .tarjeta-card-sub { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
+    .tarjeta-card-selecta { font-size: 11px; color: #5B3B8C; margin-top: 6px; padding-top: 6px; border-top: 0.5px solid var(--border); line-height: 1.5; }
 
     .cuotas-filter-bar { display: flex; gap: 8px; margin-bottom: 1rem; flex-wrap: wrap; }
     .cuotas-filter-btn { font-size: 12px; padding: 5px 14px; border-radius: 20px; border: 0.5px solid var(--border); cursor: pointer; background: none; color: var(--text-secondary); font-family: var(--font); }
@@ -623,9 +625,10 @@ function esViva(c) { return c.activa && (c.total - c.pagadas) > 0; }
 function cuotasVivas() { return cuotas.filter(esViva); }
 function cuotasArchivadas() { return cuotas.filter(c => !esViva(c)); }
 
-/* Cuotas activas del mes actual → monto total mensual (el resumen de la tarjeta) */
+/* Cuotas activas del mes actual → lo que sale del bolsillo de Facu.
+   Lo de Selecta queda afuera: se ve aparte, en la tarjeta de cada tarjeta. */
 function getCuotasMensuales() {
-  return cuotasVivas().reduce((s, c) => s + c.monto, 0);
+  return cuotasVivasPropias().reduce((s, c) => s + c.monto, 0);
 }
 
 const CAT_INVERSION = 'Inversiones';
@@ -638,13 +641,24 @@ const CAT_INVERSION = 'Inversiones';
 const CAT_CUOTA_DEFAULT = 'Compras';
 function catCuota(c) { return c.cat || CAT_CUOTA_DEFAULT; }
 
+/* ── Compras de Selecta puestas en la tarjeta personal ──
+   Facu las compra con su tarjeta pero las paga la empresa, asi que no son
+   gasto suyo: tienen que estar cargadas, porque el resumen del banco las
+   cobra y sin ellas la tarjeta no cierra contra el papel, pero no pueden
+   sumar a sus gastos ni a su balance. Antes se resolvia no cargandolas, y
+   cada conciliacion dejaba un hueco sin explicar que habia que recordar
+   de memoria. */
+function pagaSelecta(c) { return c.pagaSelecta === true; }
+function cuotasVivasPropias() { return cuotasVivas().filter(c => !pagaSelecta(c)); }
+function cuotasMensualSelecta() { return cuotasVivas().filter(pagaSelecta).reduce((s, c) => s + c.monto, 0); }
+
 function cuotasPorCategoria() {
   const m = {};
-  cuotasVivas().forEach(c => { const k = catCuota(c); m[k] = (m[k] || 0) + c.monto; });
+  cuotasVivasPropias().forEach(c => { const k = catCuota(c); m[k] = (m[k] || 0) + c.monto; });
   return m;
 }
-function cuotasMensualGasto()     { return cuotasVivas().filter(c => catCuota(c) !== CAT_INVERSION).reduce((s, c) => s + c.monto, 0); }
-function cuotasMensualInversion() { return cuotasVivas().filter(c => catCuota(c) === CAT_INVERSION).reduce((s, c) => s + c.monto, 0); }
+function cuotasMensualGasto()     { return cuotasVivasPropias().filter(c => catCuota(c) !== CAT_INVERSION).reduce((s, c) => s + c.monto, 0); }
+function cuotasMensualInversion() { return cuotasVivasPropias().filter(c => catCuota(c) === CAT_INVERSION).reduce((s, c) => s + c.monto, 0); }
 
 /* ── Invertir no es gastar ──
    La plata cambia de forma, no se consume: sale del disponible igual,
@@ -707,7 +721,7 @@ function renderMetrics() {
     <div class="metric metric-income"><div class="metric-label">Ingresos</div><div class="metric-value">${fmtMoney(ingresos)}</div><div class="metric-sub">${md.filter(e => e.type === 'ingreso').length} registros</div></div>
     <div class="metric metric-expense"><div class="metric-label">Gastos</div><div class="metric-value">${fmtMoney(gastosManuales)}</div><div class="metric-sub">${md.filter(esGasto).length} registros</div></div>`;
   if (esMesActual && cuotasMes > 0) {
-    metricsHTML += `<div class="metric metric-info"><div class="metric-label">Cuotas del mes</div><div class="metric-value">${fmtMoney(cuotasMes)}</div><div class="metric-sub">${cuotasVivas().length} activas</div></div>`;
+    metricsHTML += `<div class="metric metric-info"><div class="metric-label">Cuotas del mes</div><div class="metric-value">${fmtMoney(cuotasMes)}</div><div class="metric-sub">${cuotasVivasPropias().length} activas</div></div>`;
   }
   if (inversiones > 0) {
     metricsHTML += `<div class="metric metric-invest"><div class="metric-label" style="color:#6B3A9E;">Inversiones</div><div class="metric-value" style="color:#6B3A9E;">${fmtMoney(inversiones)}</div><div class="metric-sub" style="color:#6B3A9E;">No cuenta como gasto</div></div>`;
@@ -774,16 +788,20 @@ function cardChipHTML(tarjetaId) {
 function renderTarjetasSummary() {
   const el = document.getElementById('tarjetas-summary-grid');
   el.innerHTML = tarjetas.map(t => {
-    const activas = cuotas.filter(c => c.tarjetaId === t.id && c.activa && (c.total - c.pagadas) > 0);
-    const mes = activas.reduce((s, c) => s + c.monto, 0);
-    const deuda = activas.reduce((s, c) => s + (c.total - c.pagadas) * c.monto, 0);
+    const activas = cuotas.filter(c => c.tarjetaId === t.id && esViva(c));
+    const propias = activas.filter(c => !pagaSelecta(c));
+    const mes = propias.reduce((s, c) => s + c.monto, 0);
+    const deuda = propias.reduce((s, c) => s + (c.total - c.pagadas) * c.monto, 0);
+    // El total con Selecta adentro es el que tiene que dar igual al resumen del banco
+    const mesSelecta = activas.filter(pagaSelecta).reduce((s, c) => s + c.monto, 0);
     return `<div class="tarjeta-card">
       <div class="tarjeta-card-name" style="color:${t.color}">
         <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><rect x="0.5" y="0.5" width="13" height="9" rx="2" stroke="${t.color}" stroke-width="1.2"/><line x1="0.5" y1="3" x2="13.5" y2="3" stroke="${t.color}" stroke-width="1.2"/></svg>
         ${t.nombre}
       </div>
       <div class="tarjeta-card-amount">${fmtMoney(mes)}<span style="font-size:10px;font-weight:400;color:var(--text-tertiary)">/mes</span></div>
-      <div class="tarjeta-card-sub">${activas.length} activa${activas.length !== 1 ? 's' : ''} · deuda ${fmtMoney(deuda)}</div>
+      <div class="tarjeta-card-sub">${propias.length} activa${propias.length !== 1 ? 's' : ''} · deuda ${fmtMoney(deuda)}</div>
+      ${mesSelecta > 0 ? `<div class="tarjeta-card-selecta">+ ${fmtMoney(mesSelecta)} que paga Selecta<br><span style="color:var(--text-tertiary)">resumen del banco: ${fmtMoney(mes + mesSelecta)}</span></div>` : ''}
     </div>`;
   }).join('');
 }
@@ -813,6 +831,14 @@ function selectRubroHTML(c) {
   </select>`;
 }
 
+function toggleSelecta(id) {
+  const c = cuotas.find(x => x.id === id);
+  if (!c) return;
+  c.pagaSelecta = !pagaSelecta(c);
+  saveAll(); renderCuotas(); renderResumen();
+  showToast(c.pagaSelecta ? `"${c.desc}" la paga Selecta` : `"${c.desc}" vuelve a tus gastos`);
+}
+
 function setCuotaCat(id, cat) {
   const c = cuotas.find(x => x.id === id);
   if (!c || c.cat === cat) return;
@@ -840,7 +866,7 @@ function filaCuotaHTML(c, archivada) {
     <td>
       <div style="font-weight:500;font-size:13px;">${c.desc}</div>
       <div style="margin-top:3px;display:flex;align-items:center;gap:6px;">
-        ${badge}<span style="font-size:11px;color:var(--text-tertiary);">${c.fecha || ''}</span>
+        ${badge}${pagaSelecta(c) ? '<span class="badge badge-selecta">Paga Selecta</span>' : ''}<span style="font-size:11px;color:var(--text-tertiary);">${c.fecha || ''}</span>
       </div>
     </td>
     <td>${cardChipHTML(c.tarjetaId)}</td>
@@ -858,6 +884,7 @@ function filaCuotaHTML(c, archivada) {
         ${archivada
           ? `<button class="btn-sm" onclick="reactivarCuota(${c.id})">Reactivar</button>`
           : `<button class="btn-sm" onclick="pagarCuotaManual(${c.id})" title="Registrar un pago">+1</button>
+             <button class="btn-sm" onclick="toggleSelecta(${c.id})" title="${pagaSelecta(c) ? 'Volver a contarla como gasto tuyo' : 'La paga Selecta, no cuenta como gasto tuyo'}">${pagaSelecta(c) ? '↩ Mía' : 'Selecta'}</button>
              <button class="btn-sm-danger" onclick="cancelarCuota(${c.id})">Cancelar</button>`}
       </div>
     </td>
@@ -943,6 +970,9 @@ function openModal(type) {
         <div class="form-group"><label>Cuotas ya pagadas</label><input id="m-cpagadas" type="number" value="0" min="0"></div>
         <div class="form-group"><label>Rubro</label><select id="m-ccat">${rubroOpts}</select></div>
       </div>
+      <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary);cursor:pointer;margin-top:4px;">
+        <input type="checkbox" id="m-cselecta" style="cursor:pointer;"> La paga Selecta (no cuenta como gasto mío)
+      </label>
       <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:1rem;">
         <button class="btn-secondary" onclick="closeModal()">Cancelar</button>
         <button class="btn-primary" onclick="agregarCuota()">Agregar</button>
@@ -972,7 +1002,8 @@ function agregarCuota() {
   const cat = document.getElementById('m-ccat').value || CAT_CUOTA_DEFAULT;
   if (!desc || !monto || !total) { alert('Completá descripción, monto y cantidad de cuotas'); return; }
   if (pagadas >= total) { alert('Las cuotas pagadas no pueden ser iguales o mayores al total'); return; }
-  cuotas.push({ id: Date.now(), desc, total, pagadas, monto, activa: true, tarjetaId, cat });
+  const pagaLaEmpresa = document.getElementById('m-cselecta').checked;
+  cuotas.push({ id: Date.now(), desc, total, pagadas, monto, activa: true, tarjetaId, cat, pagaSelecta: pagaLaEmpresa });
   saveAll();
   closeModal(); renderCuotas(); renderResumen(); showToast('Compra en cuotas agregada');
 }
