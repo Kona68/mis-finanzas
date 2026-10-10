@@ -1999,6 +1999,16 @@
       "subcat": "Alquiler/Hipoteca",
       "date": "2026-10-09",
       "note": ""
+    },
+    {
+      "id": 1791673510806,
+      "type": "gasto",
+      "desc": "huevos",
+      "amount": 7000,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-10-10",
+      "note": ""
     }
   ],
   "cuotas": [
@@ -2041,7 +2051,7 @@
       "fecha": "21 Ago",
       "total": 6,
       "pagadas": 2,
-      "monto": 18150.0,
+      "monto": 18150,
       "activa": true,
       "tarjetaId": "vs",
       "cat": "Viajes"
@@ -2052,7 +2062,7 @@
       "fecha": "20 Ago",
       "total": 3,
       "pagadas": 2,
-      "monto": 6673.0,
+      "monto": 6673,
       "activa": true,
       "tarjetaId": "vs",
       "cat": "Comida"
@@ -2074,7 +2084,7 @@
       "fecha": "25 Jul",
       "total": 3,
       "pagadas": 3,
-      "monto": 6600.0,
+      "monto": 6600,
       "activa": true,
       "tarjetaId": "vs",
       "cat": "Compras"
@@ -2426,7 +2436,7 @@
       "tarjetaId": "vs",
       "pagadas": 2,
       "total": 3,
-      "monto": 6673.0,
+      "monto": 6673,
       "fecha": "30 Ago",
       "cat": "Comida",
       "activa": true
@@ -2437,34 +2447,10 @@
       "tarjetaId": "vs",
       "pagadas": 2,
       "total": 3,
-      "monto": 6523.0,
+      "monto": 6523,
       "fecha": "05 Sep",
       "cat": "Comida",
       "activa": true
-    },
-    {
-      "id": 1791650000001,
-      "desc": "Inelrostore",
-      "tarjetaId": "vb",
-      "pagadas": 1,
-      "total": 18,
-      "monto": 255055.65,
-      "fecha": "09 Sep",
-      "cat": "Compras",
-      "activa": true,
-      "pagaSelecta": true
-    },
-    {
-      "id": 1791650000002,
-      "desc": "Kelver Computación",
-      "tarjetaId": "vb",
-      "pagadas": 3,
-      "total": 3,
-      "monto": 560000.0,
-      "fecha": "07 Jul",
-      "cat": "Compras",
-      "activa": true,
-      "pagaSelecta": true
     }
   ],
   "tarjetas": [
