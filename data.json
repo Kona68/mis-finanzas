@@ -2009,6 +2009,16 @@
       "subcat": "Supermercado",
       "date": "2026-10-10",
       "note": ""
+    },
+    {
+      "id": 1791673538690,
+      "type": "gasto",
+      "desc": "salida",
+      "amount": 72000,
+      "cat": "Entretenimiento",
+      "subcat": "Citas",
+      "date": "2026-10-10",
+      "note": ""
     }
   ],
   "cuotas": [
