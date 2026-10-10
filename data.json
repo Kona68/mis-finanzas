@@ -2019,6 +2019,16 @@
       "subcat": "Citas",
       "date": "2026-10-10",
       "note": ""
+    },
+    {
+      "id": 1791673560273,
+      "type": "gasto",
+      "desc": "gym",
+      "amount": 82000,
+      "cat": "Deportes",
+      "subcat": "Cuota gimnasio",
+      "date": "2026-10-10",
+      "note": ""
     }
   ],
   "cuotas": [
