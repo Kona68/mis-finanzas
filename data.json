@@ -2481,6 +2481,17 @@
       "fecha": "05 Sep",
       "cat": "Comida",
       "activa": true
+    },
+    {
+      "id": 1791760450106,
+      "desc": "hornito santiagueño",
+      "total": 3,
+      "pagadas": 0,
+      "monto": 11919,
+      "activa": true,
+      "tarjetaId": "vs",
+      "cat": "Comida",
+      "pagaSelecta": false
     }
   ],
   "tarjetas": [
