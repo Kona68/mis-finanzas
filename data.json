@@ -2049,6 +2049,16 @@
       "subcat": "Otros",
       "date": "2026-10-11",
       "note": ""
+    },
+    {
+      "id": 1791762646505,
+      "type": "gasto",
+      "desc": "Empanansas",
+      "amount": 20020,
+      "cat": "Comida",
+      "subcat": "Pedido de comida",
+      "date": "2026-10-11",
+      "note": ""
     }
   ],
   "cuotas": [
