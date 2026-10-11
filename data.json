@@ -2059,6 +2059,16 @@
       "subcat": "Pedido de comida",
       "date": "2026-10-11",
       "note": ""
+    },
+    {
+      "id": 1791762667156,
+      "type": "gasto",
+      "desc": "Cita",
+      "amount": 34000,
+      "cat": "Entretenimiento",
+      "subcat": "Citas",
+      "date": "2026-10-11",
+      "note": ""
     }
   ],
   "cuotas": [
