@@ -2039,6 +2039,16 @@
       "subcat": "Supermercado",
       "date": "2026-10-10",
       "note": ""
+    },
+    {
+      "id": 1791761552858,
+      "type": "gasto",
+      "desc": "Realdebrid",
+      "amount": 27645,
+      "cat": "Facturas",
+      "subcat": "Otros",
+      "date": "2026-10-11",
+      "note": ""
     }
   ],
   "cuotas": [
