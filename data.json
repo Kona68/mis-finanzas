@@ -2069,6 +2069,16 @@
       "subcat": "Citas",
       "date": "2026-10-11",
       "note": ""
+    },
+    {
+      "id": 1791827886162,
+      "type": "gasto",
+      "desc": "Limpieza",
+      "amount": 40000,
+      "cat": "Casa",
+      "subcat": "Limpieza",
+      "date": "2026-10-11",
+      "note": ""
     }
   ],
   "cuotas": [
