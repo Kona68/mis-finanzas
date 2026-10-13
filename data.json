@@ -2079,6 +2079,16 @@
       "subcat": "Limpieza",
       "date": "2026-10-11",
       "note": ""
+    },
+    {
+      "id": 1791857706763,
+      "type": "gasto",
+      "desc": "Cine",
+      "amount": 22000,
+      "cat": "Entretenimiento",
+      "subcat": "Cine/Teatro",
+      "date": "2026-10-13",
+      "note": ""
     }
   ],
   "cuotas": [
