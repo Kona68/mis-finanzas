@@ -2089,6 +2089,36 @@
       "subcat": "Cine/Teatro",
       "date": "2026-10-13",
       "note": ""
+    },
+    {
+      "id": 1792283715582,
+      "type": "gasto",
+      "desc": "Farmacia",
+      "amount": 40000,
+      "cat": "Salud",
+      "subcat": "Remedios",
+      "date": "2026-10-17",
+      "note": "Rogastril"
+    },
+    {
+      "id": 1792283715583,
+      "type": "gasto",
+      "desc": "Supermercado",
+      "amount": 47000,
+      "cat": "Comida",
+      "subcat": "Supermercado",
+      "date": "2026-10-17",
+      "note": ""
+    },
+    {
+      "id": 1792283715584,
+      "type": "gasto",
+      "desc": "Comida comprada",
+      "amount": 17500,
+      "cat": "Comida",
+      "subcat": "Comida en el trabajo",
+      "date": "2026-10-17",
+      "note": ""
     }
   ],
   "cuotas": [
